@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private void initList() {
         mActivities = new ArrayList<>();
         mActivities.add(new ActivityBean(ShowActivity.class,"ShowActivity"));
+        mActivities.add(new ActivityBean(CanvasActivity.class,"CanvasActivity"));
     }
 
 
