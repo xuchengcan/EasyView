@@ -1,4 +1,4 @@
-package chen.easyview;
+package chen.easyview.bean;
 
 /**
  * Created by Chen on 2017/1/15.

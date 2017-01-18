@@ -1,4 +1,4 @@
-package chen.easyview;
+package chen.easyview.base;
 
 import android.app.Application;
 
