@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context="chen.easyview.activity.ShowActivity">
 
+    <Button
+        android:id="@+id/getTinker"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="40dp" />
+
+    <Button
+        android:id="@+id/cleanTinker"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/getTinker"
+        android:layout_height="40dp" />
+
     <chen.easyview.view.WaterWare
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

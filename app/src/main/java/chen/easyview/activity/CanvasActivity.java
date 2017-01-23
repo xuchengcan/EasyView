@@ -1,15 +1,15 @@
 package chen.easyview.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.socks.library.KLog;
 
 import chen.easyview.R;
+import chen.easyview.base.BaseActivity;
 import chen.easyview.view.ClickableView;
 
-public class CanvasActivity extends AppCompatActivity {
+public class CanvasActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

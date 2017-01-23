@@ -2,7 +2,6 @@ package chen.easyview.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chen.easyview.R;
+import chen.easyview.base.BaseActivity;
 import chen.easyview.bean.ActivityBean;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private ListView main_list;
     private List<ActivityBean> mActivities;
