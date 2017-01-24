@@ -6,8 +6,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import butterknife.ButterKnife;
+import chen.easyview.utils.TextUtil;
 
 /**
  * Created by Chen on 2017/1/23.
@@ -39,5 +41,14 @@ public class BaseActivity extends AppCompatActivity {
     public void setContentView(View view, ViewGroup.LayoutParams params) {
         super.setContentView(view, params);
         ButterKnife.bind(this);
+    }
+
+    public void showToast(String content) {
+
+        if (TextUtil.isValidate(content)) {
+            Toast.makeText(SampleApplicationLike.getContext(), content, Toast.LENGTH_SHORT).show();
+            //  Snackbar.make(getWindow().getDecorView(), content, Snackbar.LENGTH_LONG).show();
+        }
+
     }
 }

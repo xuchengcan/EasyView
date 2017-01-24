@@ -1,4 +1,4 @@
-package chen.easyview.activity;
+package chen.easyview.base;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chen.easyview.R;
-import chen.easyview.base.BaseActivity;
+import chen.easyview.activity.CanvasActivity;
+import chen.easyview.activity.PathActivity;
+import chen.easyview.activity.ShowActivity;
+import chen.easyview.activity.TestViewActivity;
+import chen.easyview.activity.TinkerActivity;
 import chen.easyview.bean.ActivityBean;
 
 public class MainActivity extends BaseActivity {
@@ -47,6 +51,9 @@ public class MainActivity extends BaseActivity {
         mActivities = new ArrayList<>();
         mActivities.add(new ActivityBean(ShowActivity.class,ShowActivity.class.getSimpleName()));
         mActivities.add(new ActivityBean(CanvasActivity.class,CanvasActivity.class.getSimpleName()));
+        mActivities.add(new ActivityBean(PathActivity.class,PathActivity.class.getSimpleName()));
+        mActivities.add(new ActivityBean(TestViewActivity.class,TestViewActivity.class.getSimpleName()));
+        mActivities.add(new ActivityBean(TinkerActivity.class,TinkerActivity.class.getSimpleName()));
     }
 
 

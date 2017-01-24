@@ -36,6 +36,10 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
     //可选，用于生成application类
     provided('com.tencent.tinker:tinker-android-anno:1.7.7')
     //tinker的核心库
@@ -58,14 +62,14 @@ ext {
 
     //for normal build
     //old apk file to build patch apk
-    tinkerOldApkPath = "${bakPath}/app-debug-0123-21-57-31.apk"
+    tinkerOldApkPath = "${bakPath}/app-debug-0124-17-04-14.apk"
     //proguard mapping file to build patch apk
-    tinkerApplyMappingPath = "${bakPath}/app-debug-0123-21-57-31-mapping.txt"
+    tinkerApplyMappingPath = "${bakPath}/app-debug-mapping.txt"
     //resource R.txt to build patch apk, must input if there is resource changed
-    tinkerApplyResourcePath = "${bakPath}/app-debug-0123-21-57-31-R.txt"
+    tinkerApplyResourcePath = "${bakPath}/app-debug-0124-17-04-14-R.txt"
 
     //only use for build all flavor, if not, just ignore this field
-    tinkerBuildFlavorDirectory = "${bakPath}/app-debug-0123-21-57-31"
+    tinkerBuildFlavorDirectory = "${bakPath}/app-debug"
 }
 
 
@@ -196,7 +200,15 @@ if (buildWithTinker()) {
              */
             loader = [
                     //use sample, let BaseBuildInfo unchangeable with tinker
-                    "tinker.sample.android.app.BaseBuildInfo"
+                    /*
+                    这一项非常重要，它定义了哪些类在加载补丁包的时候会用到。这些类是通过Tinker无法修改的类，也是一定要放在main dex的类。
+                    这里需要定义的类有：
+                        1. 你自己定义的Application类；
+                        2. Tinker库中用于加载补丁包的部分类，即com.tencent.tinker.loader.*；
+                        3. 如果你自定义了TinkerLoader，需要将它以及它引用的所有类也加入loader中；
+                        4. 其他一些你不希望被更改的类，例如Sample中的BaseBuildInfo类。这里需要注意的是，这些类的直接引用类也需要加入到loader中。或者你需要将这个类变成非preverify。
+                        5. 使用1.7.6版本之后版本，参数1、2会自动填写。
+                     */
             ]
         }
 

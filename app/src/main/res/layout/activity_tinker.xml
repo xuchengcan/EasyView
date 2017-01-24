@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_tinker"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="chen.easyview.activity.TinkerActivity">
+
+    <Button
+        android:id="@+id/get"
+        android:layout_width="match_parent"
+        android:text="获取补丁"
+        android:layout_height="50dp"/>
+
+    <Button
+        android:id="@+id/check"
+        android:layout_width="match_parent"
+        android:text="确认补丁"
+        android:layout_height="50dp"/>
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:text="加载补丁"
+        android:layout_height="50dp"/>
+
+    <Button
+        android:id="@+id/clean"
+        android:layout_width="match_parent"
+        android:text="清除补丁"
+        android:layout_height="50dp"/>
+
+    <Button
+        android:id="@+id/show"
+        android:layout_width="match_parent"
+        android:text="SHOW"
+        android:layout_height="50dp"/>
+
+</LinearLayout>
