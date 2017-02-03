@@ -102,7 +102,7 @@ public class TinkerActivity extends BaseActivity {
                 }
                 break;
             case R.id.show:
-                String temp = "展示界面-加载补丁-更新-庆森";
+                String temp = "2017.2.2-加载补丁-更新-签名chennuo";
                 ((Button)view).setText(temp);
                 showToast(temp);
                 break;
