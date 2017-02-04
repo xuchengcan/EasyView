@@ -1,4 +1,4 @@
-package chen.easyview.com.daasuu.bl;
+package com.daasuu.bl;
 
 /**
  * Created by sudamasayuki on 16/06/14.

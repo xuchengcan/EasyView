@@ -8,14 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.PopupWindow;
 
+import com.daasuu.bl.ArrowDirection;
+import com.daasuu.bl.BubbleLayout;
+import com.daasuu.bl.BubblePopupHelper;
+
 import java.util.Random;
 
 import butterknife.BindView;
 import chen.easyview.R;
 import chen.easyview.base.BaseActivity;
-import chen.easyview.com.daasuu.bl.ArrowDirection;
-import chen.easyview.com.daasuu.bl.BubbleLayout;
-import chen.easyview.com.daasuu.bl.BubblePopupHelper;
 
 public class BubbleActivity extends BaseActivity {
 

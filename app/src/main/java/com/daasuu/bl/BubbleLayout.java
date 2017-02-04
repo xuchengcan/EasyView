@@ -1,4 +1,4 @@
-package chen.easyview.com.daasuu.bl;
+package com.daasuu.bl;
 
 import android.content.Context;
 import android.content.res.TypedArray;
