@@ -46,6 +46,8 @@ dependencies {
     provided 'com.tencent.tinker:tinker-android-anno:1.7.7'
     //tinker的核心库
     compile 'com.tencent.tinker:tinker-android-lib:1.7.7'
+    //百分比布局
+    compile 'com.zhy:percent-support-extends:1.1.1'
 }
 
 

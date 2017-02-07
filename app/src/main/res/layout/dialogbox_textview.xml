@@ -26,10 +26,10 @@
                 android:gravity="center|bottom"
                 android:text="提示"
                 android:textColor="@color/mainblue"
-                app:layout_heightPercent="11%w"
+                app:layout_heightPercent="12.5%w"
                 app:layout_textSizePercent="6.5%w"/>
 
-            <RelativeLayout
+            <com.zhy.android.percent.support.PercentRelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00000000"
@@ -42,12 +42,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:lineSpacingExtra="2dp"
-                    android:lineSpacingMultiplier="1.2"
+                    android:lineSpacingExtra="1dp"
+                    android:lineSpacingMultiplier="1.1"
                     android:text="提示内容"
                     android:textColor="@color/vivo_black"
-                    android:textSize="16sp"/>
-            </RelativeLayout>
+                    app:layout_textSizePercent="6.2%w"/>
+            </com.zhy.android.percent.support.PercentRelativeLayout>
 
             <View
                 android:layout_width="match_parent"

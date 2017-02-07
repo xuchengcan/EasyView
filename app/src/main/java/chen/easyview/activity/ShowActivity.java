@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.DialogBox.Dialogbox_tips;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import chen.easyview.R;
@@ -39,6 +41,17 @@ public class ShowActivity extends BaseActivity {
                 startActivity(Intent.createChooser(sendIntent, "choose"));
                 break;
             case R.id.showButton2:
+                Dialogbox_tips.newInstance(this)
+                        .setTitle("提示")
+                        .setContent("1、使用的撒反对是覅急啊卡积分；啊老看见对方\n2、但是发射点犯得上犯得上" +
+                                "\n3、adfasdfadfsfafdadfasdfasdfadf" +
+                                "\n4、是打发打发啊发生的地方是")
+                        .setOnCallback(new Dialogbox_tips.OnCallback() {
+                            @Override
+                            public void callback(Dialogbox_tips.DialogObject dialogObject) {
+                                dialogObject.dialog.dismiss();
+                            }
+                        }).show();
                 break;
             case R.id.showButton3:
                 break;

@@ -55,6 +55,7 @@ public class BubbleActivity extends BaseActivity {
                     @Override
                     public void onClick(View v) {
                         showToast("hello you click me");
+                        popupWindow.dismiss();
                     }
                 });
 //                if (random.nextBoolean()) {
