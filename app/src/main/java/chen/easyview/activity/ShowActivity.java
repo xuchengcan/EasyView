@@ -6,11 +6,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.DialogBox.Dialogbox_tips;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import chen.easyview.R;
 import chen.easyview.base.BaseActivity;
+import okhttp3.Call;
 
 
 public class ShowActivity extends BaseActivity {
@@ -54,6 +57,21 @@ public class ShowActivity extends BaseActivity {
                         }).show();
                 break;
             case R.id.showButton3:
+                OkHttpUtils.post()
+                        .url("http://183.232.33.171/BusService.asmx/GetVersion")
+                        .addHeader("User-Agent","Html5Plus/1.0")
+                        .build()
+                        .execute(new StringCallback() {
+                            @Override
+                            public void onError(Call call, Exception e, int id) {
+
+                            }
+
+                            @Override
+                            public void onResponse(String response, int id) {
+                                showToast(response);
+                            }
+                        });
                 break;
             case R.id.showButton4:
                 break;

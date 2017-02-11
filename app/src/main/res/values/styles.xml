@@ -33,4 +33,10 @@
         <item name="android:windowBackground">@color/tran</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+
+    <style name="PopupAnimationAttach">
+        <item name="android:windowEnterAnimation">@anim/popdown_show_anim</item>
+        <item name="android:windowExitAnimation">@anim/popup_hidden_anim</item>
+    </style>
+
 </resources>

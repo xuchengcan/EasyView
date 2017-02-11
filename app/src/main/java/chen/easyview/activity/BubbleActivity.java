@@ -67,4 +67,15 @@ public class BubbleActivity extends BaseActivity {
             }
         });
     }
+
+
+//    //拦截popup的点击事件，必须
+//    @Override
+//    public boolean dispatchTouchEvent(MotionEvent ev) {
+//        if (popupWindow != null && popupWindow.isShowing()) {
+//            popupWindow.dismiss();
+//            return true;
+//        }
+//        return super.dispatchTouchEvent(ev);
+//    }
 }
