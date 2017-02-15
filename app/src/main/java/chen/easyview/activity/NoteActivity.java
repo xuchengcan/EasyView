@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.baidu.tts.client.SpeechSynthesizer;
 import com.socks.library.KLog;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -29,6 +30,8 @@ public class NoteActivity extends BaseActivity {
     @BindView(R.id.textView)
     TextView mTextView;
 
+    SpeechSynthesizer speechSynthesizer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,17 +39,18 @@ public class NoteActivity extends BaseActivity {
 
     }
 
+
     @OnClick({R.id.button, R.id.button2, R.id.button3, R.id.button4})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button:
-
+                speechSynthesizer.speak("你好");
                 break;
             case R.id.button2:
                 KLog.i("2");
 
                 OkHttpUtils.get()
-                        .url("https://github.com/xuchengcan/EasyView/blob/master/app/src/main/java/README_TODO")
+                        .url("https://api.github.com/repos/xuchengcan/EasyView/contents/README.md?ref=master")
                         .build()
                         .execute(new StringCallback() {
                             @Override
@@ -62,6 +66,7 @@ public class NoteActivity extends BaseActivity {
                         });
                 break;
             case R.id.button3:
+
                 break;
             case R.id.button4:
                 break;

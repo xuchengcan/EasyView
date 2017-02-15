@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chen.easyview.R;
+import chen.easyview.activity.BaiduTtsActivity;
 import chen.easyview.activity.BubbleActivity;
 import chen.easyview.activity.CanvasActivity;
 import chen.easyview.activity.NoteActivity;
@@ -58,6 +59,7 @@ public class MainActivity extends BaseActivity {
         mActivities.add(new ActivityBean(TinkerActivity.class,TinkerActivity.class.getSimpleName()));
         mActivities.add(new ActivityBean(BubbleActivity.class,BubbleActivity.class.getSimpleName()));
         mActivities.add(new ActivityBean(NoteActivity.class,NoteActivity.class.getSimpleName()));
+        mActivities.add(new ActivityBean(BaiduTtsActivity.class,BaiduTtsActivity.class.getSimpleName()));
 
     }
 
