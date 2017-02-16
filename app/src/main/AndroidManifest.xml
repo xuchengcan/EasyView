@@ -29,7 +29,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppThemeNoActionBar">
+        <!--"@style/AppTheme"-->
+        <!--"@style/AppThemeNoActionBar"-->
+
         <meta-data
             android:name="TINKER_ID"
             android:value="2.0"/>
@@ -40,6 +43,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
         <activity android:name=".activity.ShowActivity"/>
         <activity android:name=".activity.CanvasActivity"/>
@@ -52,8 +56,23 @@
         <activity android:name=".activity.BubbleActivity">
         </activity>
         <activity android:name=".activity.NoteActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+                <data android:mimeType="*/*"/>
+
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*"/>
+            </intent-filter>
         </activity>
         <activity android:name=".activity.BaiduTtsActivity">
+
+
         </activity>
     </application>
 

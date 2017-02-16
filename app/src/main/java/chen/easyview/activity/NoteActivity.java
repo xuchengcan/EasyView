@@ -3,19 +3,17 @@ package chen.easyview.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.baidu.tts.client.SpeechSynthesizer;
 import com.socks.library.KLog;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import chen.easyview.R;
 import chen.easyview.base.BaseActivity;
-import okhttp3.Call;
 
 public class NoteActivity extends BaseActivity {
 
@@ -30,12 +28,32 @@ public class NoteActivity extends BaseActivity {
     @BindView(R.id.textView)
     TextView mTextView;
 
-    SpeechSynthesizer speechSynthesizer;
+    private WebView webView;
+    private WebSettings webSettings;
+    private Boolean isFromThird = false;//来自第三方跳转
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
+
+
+        if (Intent.ACTION_VIEW.equals(getIntent().getAction())){
+            isFromThird = true;
+        }
+
+        if (isFromThird){
+
+            KLog.i(getIntent().getData().toString());
+            String Url = getIntent().getData().toString();
+            webView = new WebView(NoteActivity.this);
+            webView.loadUrl(Url);
+
+
+
+        }
+
+
 
     }
 
@@ -44,26 +62,9 @@ public class NoteActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button:
-                speechSynthesizer.speak("你好");
                 break;
             case R.id.button2:
-                KLog.i("2");
 
-                OkHttpUtils.get()
-                        .url("https://api.github.com/repos/xuchengcan/EasyView/contents/README.md?ref=master")
-                        .build()
-                        .execute(new StringCallback() {
-                            @Override
-                            public void onError(Call call, Exception e, int id) {
-
-                            }
-
-                            @Override
-                            public void onResponse(String response, int id) {
-
-                                KLog.i(response);
-                            }
-                        });
                 break;
             case R.id.button3:
 
@@ -73,8 +74,5 @@ public class NoteActivity extends BaseActivity {
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-    }
+
 }

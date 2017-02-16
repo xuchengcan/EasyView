@@ -55,6 +55,7 @@ public class BaiduTtsActivity extends BaseActivity implements SpeechSynthesizerL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_baidu_tts);
+
         initialEnv();
         initBD();
         mInput = (EditText)findViewById(R.id.editText);
