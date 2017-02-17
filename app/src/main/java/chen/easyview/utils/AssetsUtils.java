@@ -1,6 +1,7 @@
 package chen.easyview.utils;
 
 import android.content.Context;
+import android.os.Environment;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,15 +14,23 @@ import java.io.InputStream;
  */
 
 public class AssetsUtils {
+
+    private static final String DIR_NAME = "EasyView";
+
     /**
-     * 将sample工程需要的资源文件拷贝到SD卡中使用（授权文件为临时授权文件，请注册正式授权）
-     *
      * @param isCover 是否覆盖已存在的目标文件
-     * @param source
-     * @param dest
+     * @param source  Assets/中的文件名称
+     * @param dest    eaayview/中的文件名称
      */
-    public static void copyFromAssetsToSdcard(Context context,boolean isCover, String source, String dest) {
-        File file = new File(dest);
+    public static void copyFromAssetsToSdcard(Context context, boolean isCover, String source, String dest) {
+
+        String sdcardPath = Environment.getExternalStorageDirectory().toString();
+        File dir = new File(sdcardPath + "/" + DIR_NAME);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+
+        File file = new File(DIR_NAME + "/" + dest);
         if (isCover || (!isCover && !file.exists())) {
             InputStream is = null;
             FileOutputStream fos = null;

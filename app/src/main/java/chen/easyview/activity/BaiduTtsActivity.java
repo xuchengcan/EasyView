@@ -20,20 +20,15 @@ import com.baidu.tts.client.SpeechSynthesizerListener;
 import com.baidu.tts.client.TtsMode;
 import com.socks.library.KLog;
 
-import java.io.File;
-
 import butterknife.BindView;
 import chen.easyview.R;
 import chen.easyview.base.BaseActivity;
-import chen.easyview.utils.AssetsUtils;
 
 public class BaiduTtsActivity extends BaseActivity implements SpeechSynthesizerListener {
 
-
-    private static final String SAMPLE_DIR_NAME = "EasyView";
-    private static final String SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female.dat";
-    //    private static final String SPEECH_MALE_MODEL_NAME = "bd_etts_speech_male.dat";
-    private static final String TEXT_MODEL_NAME = "bd_etts_text.dat";
+//    private static final String SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female.dat";
+//    private static final String SPEECH_MALE_MODEL_NAME = "bd_etts_speech_male.dat";
+//    private static final String TEXT_MODEL_NAME = "bd_etts_text.dat";
 //    private static final String LICENSE_FILE_NAME = "temp_license";
 //    private static final String ENGLISH_SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female_en.dat";
 //    private static final String ENGLISH_SPEECH_MALE_MODEL_NAME = "bd_etts_speech_male_en.dat";
@@ -58,7 +53,7 @@ public class BaiduTtsActivity extends BaseActivity implements SpeechSynthesizerL
 
         initialEnv();
         initBD();
-        mInput = (EditText)findViewById(R.id.editText);
+        mInput = (EditText) findViewById(R.id.editText);
         mButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,29 +62,19 @@ public class BaiduTtsActivity extends BaseActivity implements SpeechSynthesizerL
         });
     }
 
+    //离线资源，在本项目不使用，有需要去yuyin.baidu.com下载
     private void initialEnv() {
         if (mSampleDirPath == null) {
             String sdcardPath = Environment.getExternalStorageDirectory().toString();
-            mSampleDirPath = sdcardPath + "/" + SAMPLE_DIR_NAME;
+            mSampleDirPath = sdcardPath + "/EasyView";
         }
-        makeDir(mSampleDirPath);
-        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this, false, SPEECH_FEMALE_MODEL_NAME, mSampleDirPath + "/" + SPEECH_FEMALE_MODEL_NAME);
-//        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this,false, SPEECH_MALE_MODEL_NAME, mSampleDirPath + "/" + SPEECH_MALE_MODEL_NAME);
-        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this, false, TEXT_MODEL_NAME, mSampleDirPath + "/" + TEXT_MODEL_NAME);
-//        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this,false, LICENSE_FILE_NAME, mSampleDirPath + "/" + LICENSE_FILE_NAME);
-//        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this,false, "english/" + ENGLISH_SPEECH_FEMALE_MODEL_NAME, mSampleDirPath + "/"
-//                + ENGLISH_SPEECH_FEMALE_MODEL_NAME);
-//        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this,false, "english/" + ENGLISH_SPEECH_MALE_MODEL_NAME, mSampleDirPath + "/"
-//                + ENGLISH_SPEECH_MALE_MODEL_NAME);
-//        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this,false, "english/" + ENGLISH_TEXT_MODEL_NAME, mSampleDirPath + "/"
-//                + ENGLISH_TEXT_MODEL_NAME);
-    }
-
-    private void makeDir(String dirPath) {
-        File file = new File(dirPath);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
+//        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this, false, SPEECH_FEMALE_MODEL_NAME, SPEECH_FEMALE_MODEL_NAME);
+//        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this,false, SPEECH_MALE_MODEL_NAME, SPEECH_MALE_MODEL_NAME);
+//        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this, false, TEXT_MODEL_NAME, TEXT_MODEL_NAME);
+//        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this,false, LICENSE_FILE_NAME, LICENSE_FILE_NAME);
+//        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this,false, "english/" + ENGLISH_SPEECH_FEMALE_MODEL_NAME, ENGLISH_SPEECH_FEMALE_MODEL_NAME);
+//        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this,false, "english/" + ENGLISH_SPEECH_MALE_MODEL_NAME, ENGLISH_SPEECH_MALE_MODEL_NAME);
+//        AssetsUtils.copyFromAssetsToSdcard(BaiduTtsActivity.this,false, "english/" + ENGLISH_TEXT_MODEL_NAME, ENGLISH_TEXT_MODEL_NAME);
     }
 
     private void initBD() {
@@ -100,11 +85,11 @@ public class BaiduTtsActivity extends BaseActivity implements SpeechSynthesizerL
         // 设置 tts 监听器
         speechSynthesizer.setSpeechSynthesizerListener(this);
         // 文本模型文件路径 (离线引擎使用)
-        speechSynthesizer.setParam(SpeechSynthesizer.PARAM_TTS_TEXT_MODEL_FILE, mSampleDirPath + "/"
-                + TEXT_MODEL_NAME);
-        // 声学模型文件路径 (离线引擎使用)
-        speechSynthesizer.setParam(SpeechSynthesizer.PARAM_TTS_SPEECH_MODEL_FILE, mSampleDirPath + "/"
-                + SPEECH_FEMALE_MODEL_NAME);
+//        speechSynthesizer.setParam(SpeechSynthesizer.PARAM_TTS_TEXT_MODEL_FILE, mSampleDirPath + "/"
+//                + TEXT_MODEL_NAME);
+//        // 声学模型文件路径 (离线引擎使用)
+//        speechSynthesizer.setParam(SpeechSynthesizer.PARAM_TTS_SPEECH_MODEL_FILE, mSampleDirPath + "/"
+//                + SPEECH_FEMALE_MODEL_NAME);
         // 本地授权文件路径,如未设置将使用默认路径.设置临时授权文件路径，LICENCE_FILE_NAME请替换成临时授权文件的实际路径，仅在使用临时license文件时需要进行设置，如果在[应用管理]中开通了正式离线授权，不需要设置该参数，建议将该行代码删除（离线引擎）
         // 如果合成结果出现临时授权文件将要到期的提示，说明使用了临时授权文件，请删除临时授权即可。
 //        speechSynthesizer.setParam(SpeechSynthesizer.PARAM_TTS_LICENCE_FILE, mSampleDirPath + "/"
@@ -134,16 +119,16 @@ public class BaiduTtsActivity extends BaseActivity implements SpeechSynthesizerL
         }
     }
 
-    private void pause() {
+    @Override
+    protected void onPause() {
         speechSynthesizer.pause();
+        super.onPause();
     }
 
-    private void resume() {
+    @Override
+    protected void onResume() {
         speechSynthesizer.resume();
-    }
-
-    private void stop() {
-        speechSynthesizer.stop();
+        super.onResume();
     }
 
     @Override

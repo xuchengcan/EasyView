@@ -19,6 +19,7 @@ import chen.easyview.R;
 import chen.easyview.activity.BaiduTtsActivity;
 import chen.easyview.activity.BubbleActivity;
 import chen.easyview.activity.CanvasActivity;
+import chen.easyview.activity.EasyWebViewActivity;
 import chen.easyview.activity.NoteActivity;
 import chen.easyview.activity.PathActivity;
 import chen.easyview.activity.ShowActivity;
@@ -60,6 +61,8 @@ public class MainActivity extends BaseActivity {
         mActivities.add(new ActivityBean(BubbleActivity.class,BubbleActivity.class.getSimpleName()));
         mActivities.add(new ActivityBean(NoteActivity.class,NoteActivity.class.getSimpleName()));
         mActivities.add(new ActivityBean(BaiduTtsActivity.class,BaiduTtsActivity.class.getSimpleName()));
+        mActivities.add(new ActivityBean(EasyWebViewActivity.class,EasyWebViewActivity.class.getSimpleName()));
+
 
     }
 

@@ -46,7 +46,7 @@ public class BaseActivity extends AppCompatActivity {
     public void showToast(String content) {
 
         if (TextUtil.isValidate(content)) {
-            Toast.makeText(SampleApplicationLike.getContext(), content, Toast.LENGTH_SHORT).show();
+            Toast.makeText(BaseApplication.getContext(), content, Toast.LENGTH_SHORT).show();
             //  Snackbar.make(getWindow().getDecorView(), content, Snackbar.LENGTH_LONG).show();
         }
 

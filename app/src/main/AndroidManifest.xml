@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!-- WIFI网络状态信息权限 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- 改变WIFI网络状态信息权限 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 
     <!-- 写入扩展存储，向扩展卡写入数据 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -61,7 +63,6 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:scheme="https"/>
                 <data android:scheme="http"/>
-                <data android:mimeType="*/*"/>
 
             </intent-filter>
             <intent-filter>
@@ -74,6 +75,10 @@
 
 
         </activity>
+
+        <activity android:name=".activity.EasyWebViewActivity">
+        </activity>
+
     </application>
 
 </manifest>
