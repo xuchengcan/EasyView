@@ -61,6 +61,7 @@ public class BaseApplication extends DefaultApplicationLike {
         //数据库密码super-secret
         Database db = ENCRYPTED ? helper.getEncryptedWritableDb("super-secret") : helper.getWritableDb();
         daoSession = new DaoMaster(db).newSession();
+
     }
 
     public static Context getContext() {

@@ -6,6 +6,9 @@ package chen.easyview.base;
 
 public final class BaseConfig {
 
-    private static final String DIR_NAME = "EasyView";
+    public static final String DIR_NAME = "EasyView";
+
+
+    public static String SERVER_IP = "http://192.168.1.102:8080";
 
 }

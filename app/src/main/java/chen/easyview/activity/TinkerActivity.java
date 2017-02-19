@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import chen.easyview.R;
 import chen.easyview.base.BaseActivity;
-import chen.easyview.utils.UrlHelper;
+import chen.easyview.base.BaseConfig;
 import okhttp3.Call;
 
 import static chen.easyview.R.id.show;
@@ -54,7 +54,7 @@ public class TinkerActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.get:
                 OkHttpUtils.get()
-                        .url(UrlHelper.LOCAL_URL+"/chen/"+destFileName)
+                        .url(BaseConfig.SERVER_IP+"/chen/"+destFileName)
                         .build()
                         .execute(new FileCallBack(destFileDir, destFileName) {
                             @Override
