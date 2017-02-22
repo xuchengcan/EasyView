@@ -27,6 +27,7 @@ import chen.easyview.base.UrlHelper;
 import chen.easyview.greendao.DaoSession;
 import chen.easyview.greendao.TodoBean;
 import chen.easyview.greendao.TodoBeanDao;
+import chen.easyview.net.JsonParser;
 import okhttp3.Call;
 
 
@@ -49,6 +50,7 @@ public class NoteActivity extends BaseActivity {
 
     private TodoBeanDao mTodoBeanDao;
     private Query<TodoBean> mTodoBeanQuery;
+    List<TodoBean> list;
 
     private Boolean isFromThird = false;//来自第三方跳转
 
@@ -67,12 +69,14 @@ public class NoteActivity extends BaseActivity {
             }
         });
 
+
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                OkHttpUtils.get()
+                OkHttpUtils.post()
                         .url(BaseConfig.SERVER_IP + UrlHelper.TODO_URL)
-                        .addParams("name","xuchengcan")
+                        .addParams("name", "xuchengcan")
+                        .addParams("json", JsonParser.serializeToJson(list))
                         .build()
                         .execute(new StringCallback() {
                             @Override
@@ -97,7 +101,8 @@ public class NoteActivity extends BaseActivity {
         mShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<TodoBean> list = mTodoBeanQuery.list();
+                KLog.i();
+                list = mTodoBeanQuery.list();
                 for (TodoBean todoBean : list) {
                     KLog.i(todoBean.toString());
                 }
@@ -115,7 +120,7 @@ public class NoteActivity extends BaseActivity {
             KLog.i(getIntent().getData().toString());
             String Url = getIntent().getData().toString();
 
-            TodoBean todoBean = new TodoBean(null, "weixin", "title", Url, "", "", new Date().toString(), false);
+            TodoBean todoBean = new TodoBean(null, "weixin", "title", Url,"", "", "", new Date().toString(), false);
             mTodoBeanDao.insert(todoBean);
 
             Intent intent = new Intent(NoteActivity.this, EasyWebViewActivity.class);

@@ -2,8 +2,8 @@ package chen.easyview.greendao;
 
 
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
 
 /**
  * Created by chen on 2017/2/17.
@@ -18,6 +18,7 @@ public class TodoBean {
     public String Name;
     public String Title;
     public String Url;
+    public String Type;
     public String StartTime;
     public String StopTime;
     public String CreatTime;
@@ -30,6 +31,7 @@ public class TodoBean {
                 ", Name='" + Name + '\'' +
                 ", Title='" + Title + '\'' +
                 ", Url='" + Url + '\'' +
+                ", Type='" + Type + '\'' +
                 ", StartTime='" + StartTime + '\'' +
                 ", StopTime='" + StopTime + '\'' +
                 ", CreatTime='" + CreatTime + '\'' +
@@ -37,67 +39,94 @@ public class TodoBean {
                 '}';
     }
 
-    @Generated(hash = 392815496)
-    public TodoBean(Long ID, String Name, String Title, String Url,
+    @Generated(hash = 322114634)
+    public TodoBean(Long ID, String Name, String Title, String Url, String Type,
             String StartTime, String StopTime, String CreatTime,
             Boolean IsComplete) {
         this.ID = ID;
         this.Name = Name;
         this.Title = Title;
         this.Url = Url;
+        this.Type = Type;
         this.StartTime = StartTime;
         this.StopTime = StopTime;
         this.CreatTime = CreatTime;
         this.IsComplete = IsComplete;
     }
+
     @Generated(hash = 1563990781)
     public TodoBean() {
     }
+
+
     public Long getID() {
         return this.ID;
     }
+
     public void setID(Long ID) {
         this.ID = ID;
     }
+
     public String getName() {
         return this.Name;
     }
+
     public void setName(String Name) {
         this.Name = Name;
     }
+
     public String getTitle() {
         return this.Title;
     }
+
     public void setTitle(String Title) {
         this.Title = Title;
     }
+
     public String getUrl() {
         return this.Url;
     }
+
     public void setUrl(String Url) {
         this.Url = Url;
     }
+
+    public String getType() {
+        return this.Type;
+    }
+
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+
     public String getStartTime() {
         return this.StartTime;
     }
+
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
+
     public String getStopTime() {
         return this.StopTime;
     }
+
     public void setStopTime(String StopTime) {
         this.StopTime = StopTime;
     }
+
     public String getCreatTime() {
         return this.CreatTime;
     }
+
     public void setCreatTime(String CreatTime) {
         this.CreatTime = CreatTime;
     }
+
     public Boolean getIsComplete() {
         return this.IsComplete;
     }
+
     public void setIsComplete(Boolean IsComplete) {
         this.IsComplete = IsComplete;
     }

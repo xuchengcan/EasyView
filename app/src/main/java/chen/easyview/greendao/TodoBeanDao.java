@@ -26,10 +26,11 @@ public class TodoBeanDao extends AbstractDao<TodoBean, Long> {
         public final static Property Name = new Property(1, String.class, "Name", false, "NAME");
         public final static Property Title = new Property(2, String.class, "Title", false, "TITLE");
         public final static Property Url = new Property(3, String.class, "Url", false, "URL");
-        public final static Property StartTime = new Property(4, String.class, "StartTime", false, "START_TIME");
-        public final static Property StopTime = new Property(5, String.class, "StopTime", false, "STOP_TIME");
-        public final static Property CreatTime = new Property(6, String.class, "CreatTime", false, "CREAT_TIME");
-        public final static Property IsComplete = new Property(7, Boolean.class, "IsComplete", false, "IS_COMPLETE");
+        public final static Property Type = new Property(4, String.class, "Type", false, "TYPE");
+        public final static Property StartTime = new Property(5, String.class, "StartTime", false, "START_TIME");
+        public final static Property StopTime = new Property(6, String.class, "StopTime", false, "STOP_TIME");
+        public final static Property CreatTime = new Property(7, String.class, "CreatTime", false, "CREAT_TIME");
+        public final static Property IsComplete = new Property(8, Boolean.class, "IsComplete", false, "IS_COMPLETE");
     }
 
 
@@ -49,10 +50,11 @@ public class TodoBeanDao extends AbstractDao<TodoBean, Long> {
                 "\"NAME\" TEXT," + // 1: Name
                 "\"TITLE\" TEXT," + // 2: Title
                 "\"URL\" TEXT," + // 3: Url
-                "\"START_TIME\" TEXT," + // 4: StartTime
-                "\"STOP_TIME\" TEXT," + // 5: StopTime
-                "\"CREAT_TIME\" TEXT," + // 6: CreatTime
-                "\"IS_COMPLETE\" INTEGER);"); // 7: IsComplete
+                "\"TYPE\" TEXT," + // 4: Type
+                "\"START_TIME\" TEXT," + // 5: StartTime
+                "\"STOP_TIME\" TEXT," + // 6: StopTime
+                "\"CREAT_TIME\" TEXT," + // 7: CreatTime
+                "\"IS_COMPLETE\" INTEGER);"); // 8: IsComplete
     }
 
     /** Drops the underlying database table. */
@@ -85,24 +87,29 @@ public class TodoBeanDao extends AbstractDao<TodoBean, Long> {
             stmt.bindString(4, Url);
         }
  
+        String Type = entity.getType();
+        if (Type != null) {
+            stmt.bindString(5, Type);
+        }
+ 
         String StartTime = entity.getStartTime();
         if (StartTime != null) {
-            stmt.bindString(5, StartTime);
+            stmt.bindString(6, StartTime);
         }
  
         String StopTime = entity.getStopTime();
         if (StopTime != null) {
-            stmt.bindString(6, StopTime);
+            stmt.bindString(7, StopTime);
         }
  
         String CreatTime = entity.getCreatTime();
         if (CreatTime != null) {
-            stmt.bindString(7, CreatTime);
+            stmt.bindString(8, CreatTime);
         }
  
         Boolean IsComplete = entity.getIsComplete();
         if (IsComplete != null) {
-            stmt.bindLong(8, IsComplete ? 1L: 0L);
+            stmt.bindLong(9, IsComplete ? 1L: 0L);
         }
     }
 
@@ -130,24 +137,29 @@ public class TodoBeanDao extends AbstractDao<TodoBean, Long> {
             stmt.bindString(4, Url);
         }
  
+        String Type = entity.getType();
+        if (Type != null) {
+            stmt.bindString(5, Type);
+        }
+ 
         String StartTime = entity.getStartTime();
         if (StartTime != null) {
-            stmt.bindString(5, StartTime);
+            stmt.bindString(6, StartTime);
         }
  
         String StopTime = entity.getStopTime();
         if (StopTime != null) {
-            stmt.bindString(6, StopTime);
+            stmt.bindString(7, StopTime);
         }
  
         String CreatTime = entity.getCreatTime();
         if (CreatTime != null) {
-            stmt.bindString(7, CreatTime);
+            stmt.bindString(8, CreatTime);
         }
  
         Boolean IsComplete = entity.getIsComplete();
         if (IsComplete != null) {
-            stmt.bindLong(8, IsComplete ? 1L: 0L);
+            stmt.bindLong(9, IsComplete ? 1L: 0L);
         }
     }
 
@@ -163,10 +175,11 @@ public class TodoBeanDao extends AbstractDao<TodoBean, Long> {
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // Name
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // Title
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // Url
-            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // StartTime
-            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // StopTime
-            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // CreatTime
-            cursor.isNull(offset + 7) ? null : cursor.getShort(offset + 7) != 0 // IsComplete
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // Type
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // StartTime
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // StopTime
+            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // CreatTime
+            cursor.isNull(offset + 8) ? null : cursor.getShort(offset + 8) != 0 // IsComplete
         );
         return entity;
     }
@@ -177,10 +190,11 @@ public class TodoBeanDao extends AbstractDao<TodoBean, Long> {
         entity.setName(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setTitle(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setUrl(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
-        entity.setStartTime(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
-        entity.setStopTime(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
-        entity.setCreatTime(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
-        entity.setIsComplete(cursor.isNull(offset + 7) ? null : cursor.getShort(offset + 7) != 0);
+        entity.setType(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setStartTime(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
+        entity.setStopTime(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
+        entity.setCreatTime(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
+        entity.setIsComplete(cursor.isNull(offset + 8) ? null : cursor.getShort(offset + 8) != 0);
      }
     
     @Override
