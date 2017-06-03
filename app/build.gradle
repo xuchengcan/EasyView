@@ -42,29 +42,30 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.+'
-    compile 'com.android.support:recyclerview-v7:25.+'
-    compile 'com.android.support:cardview-v7:25.+'
 
-    testCompile 'junit:junit:4.12'
-    compile 'com.github.zhaokaiqiang.klog:library:1.5.0'
-    compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.jakewharton:butterknife:8.4.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile 'com.google.code.gson:gson:2.7'
-    compile 'com.zhy:okhttputils:2.6.2'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
     //可选，用于生成application类
-    provided 'com.tencent.tinker:tinker-android-anno:1.7.7'
     //tinker的核心库
-    compile 'com.tencent.tinker:tinker-android-lib:1.7.7'
     //百分比布局
-    compile 'com.zhy:percent-support-extends:1.1.1'
     //GreenDao
-    compile 'org.greenrobot:greendao:3.2.0'
     // 需要加密数据库时可以使用
     // compile 'net.zetetic:android-database-sqlcipher:3.5.4'
 
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support:recyclerview-v7:25.3.0'
+    compile 'com.android.support:cardview-v7:25.3.0'
+    compile 'com.github.zhaokaiqiang.klog:library:1.5.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.tencent.tinker:tinker-android-lib:1.7.7'
+    compile 'com.zhy:percent-support-extends:1.1.1'
+    compile 'org.greenrobot:greendao:3.2.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    provided 'com.tencent.tinker:tinker-android-anno:1.7.7'
 }
 
 
@@ -343,7 +344,7 @@ if (buildWithTinker()) {
     }
 
     List<String> flavors = new ArrayList<>();
-    project.android.productFlavors.each {flavor ->
+    project.android.productFlavors.each { flavor ->
         flavors.add(flavor.name)
     }
     boolean hasFlavors = flavors.size() > 0
@@ -359,7 +360,7 @@ if (buildWithTinker()) {
 
         tasks.all {
             if ("assemble${taskName.capitalize()}".equalsIgnoreCase(it.name)) {
-                if (closebakPath()){
+                if (closebakPath()) {
                     return
                 }
                 it.doLast {

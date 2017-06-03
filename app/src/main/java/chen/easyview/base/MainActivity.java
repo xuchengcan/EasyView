@@ -21,7 +21,6 @@ import chen.easyview.activity.BubbleActivity;
 import chen.easyview.activity.CanvasActivity;
 import chen.easyview.activity.EasyWebViewActivity;
 import chen.easyview.activity.NoteActivity;
-import chen.easyview.activity.PathActivity;
 import chen.easyview.activity.ShowActivity;
 import chen.easyview.activity.TestViewActivity;
 import chen.easyview.activity.TinkerActivity;
@@ -55,7 +54,6 @@ public class MainActivity extends BaseActivity {
         mActivities = new ArrayList<>();
         mActivities.add(new ActivityBean(ShowActivity.class,ShowActivity.class.getSimpleName()));
         mActivities.add(new ActivityBean(CanvasActivity.class,CanvasActivity.class.getSimpleName()));
-        mActivities.add(new ActivityBean(PathActivity.class,PathActivity.class.getSimpleName()));
         mActivities.add(new ActivityBean(TestViewActivity.class,TestViewActivity.class.getSimpleName()));
         mActivities.add(new ActivityBean(TinkerActivity.class,TinkerActivity.class.getSimpleName()));
         mActivities.add(new ActivityBean(BubbleActivity.class,BubbleActivity.class.getSimpleName()));
