@@ -18,7 +18,6 @@ import org.greenrobot.greendao.query.Query;
 import java.util.Date;
 import java.util.List;
 
-import butterknife.BindView;
 import chen.easyview.R;
 import chen.easyview.base.BaseActivity;
 import chen.easyview.base.BaseApplication;
@@ -33,19 +32,12 @@ import okhttp3.Call;
 
 public class NoteActivity extends BaseActivity {
 
-    @BindView(R.id.toolbar)
     Toolbar mToolbar;
-    @BindView(R.id.list)
     RecyclerView mList;
-    @BindView(R.id.show)
     Button mShow;
-    @BindView(R.id.server_ip)
     EditText serverIp;
-    @BindView(R.id.check)
     Button check;
-    @BindView(R.id.post)
     Button post;
-    @BindView(R.id.text)
     TextView text;
 
     private TodoBeanDao mTodoBeanDao;
@@ -59,6 +51,13 @@ public class NoteActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
 
+        mToolbar = findViewById(R.id.toolbar);
+        mList = findViewById(R.id.list);
+        mShow = findViewById(R.id.show);
+        serverIp = findViewById(R.id.server_ip);
+        check = findViewById(R.id.check);
+        post = findViewById(R.id.post);
+        text = findViewById(R.id.text);
 
         serverIp.setText(BaseConfig.SERVER_IP);
         check.setOnClickListener(new View.OnClickListener() {
@@ -120,7 +119,7 @@ public class NoteActivity extends BaseActivity {
             KLog.i(getIntent().getData().toString());
             String Url = getIntent().getData().toString();
 
-            TodoBean todoBean = new TodoBean(null, "weixin", "title", Url,"", "", "", new Date().toString(), false);
+            TodoBean todoBean = new TodoBean(null, "weixin", "title", Url, "", "", "", new Date().toString(), false);
             mTodoBeanDao.insert(todoBean);
 
             Intent intent = new Intent(NoteActivity.this, EasyWebViewActivity.class);

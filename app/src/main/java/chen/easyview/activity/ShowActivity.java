@@ -9,7 +9,6 @@ import com.DialogBox.Dialogbox_tips;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
-import butterknife.BindView;
 import butterknife.OnClick;
 import chen.easyview.R;
 import chen.easyview.base.BaseActivity;
@@ -18,19 +17,19 @@ import okhttp3.Call;
 
 public class ShowActivity extends BaseActivity {
 
-    @BindView(R.id.showButton1)
     Button mShowButton1;
-    @BindView(R.id.showButton2)
     Button mShowButton2;
-    @BindView(R.id.showButton3)
     Button mShowButton3;
-    @BindView(R.id.showButton4)
     Button mShowButton4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show);
+        mShowButton1 = findViewById(R.id.showButton1);
+        mShowButton2 = findViewById(R.id.showButton2);
+        mShowButton3 = findViewById(R.id.showButton3);
+        mShowButton4 = findViewById(R.id.showButton4);
     }
 
     @OnClick({R.id.showButton1, R.id.showButton2, R.id.showButton3, R.id.showButton4})

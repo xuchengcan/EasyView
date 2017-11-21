@@ -20,7 +20,6 @@ import com.baidu.tts.client.SpeechSynthesizerListener;
 import com.baidu.tts.client.TtsMode;
 import com.socks.library.KLog;
 
-import butterknife.BindView;
 import chen.easyview.R;
 import chen.easyview.base.BaseActivity;
 
@@ -39,7 +38,6 @@ public class BaiduTtsActivity extends BaseActivity implements SpeechSynthesizerL
     private static final int UI_CHANGE_SYNTHES_TEXT_SELECTION = 2;
     private static final String TAG = "MainActivity";
 
-    @BindView(R.id.button5)
     Button mButton5;
 
     private SpeechSynthesizer speechSynthesizer;
@@ -54,6 +52,7 @@ public class BaiduTtsActivity extends BaseActivity implements SpeechSynthesizerL
         initialEnv();
         initBD();
         mInput = (EditText) findViewById(R.id.editText);
+        mButton5 = findViewById(R.id.button5);
         mButton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

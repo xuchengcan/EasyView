@@ -2,13 +2,8 @@ package chen.easyview.base;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
 
 import com.socks.library.KLog;
-import com.tencent.tinker.anno.DefaultLifeCycle;
-import com.tencent.tinker.lib.tinker.TinkerInstaller;
-import com.tencent.tinker.loader.app.DefaultApplicationLike;
-import com.tencent.tinker.loader.shareutil.ShareConstants;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.log.LoggerInterceptor;
 
@@ -24,8 +19,8 @@ import okhttp3.OkHttpClient;
  * Created by Chen on 2017/1/23.
  */
 
-@DefaultLifeCycle(application = "chen.easyview.base.BaseApplication2",flags = ShareConstants.TINKER_ENABLE_ALL)
-public class BaseApplication extends DefaultApplicationLike {
+
+public class BaseApplication extends Application {
 
     /** A flag to show how easily you can switch from standard SQLite to the encrypted SQLCipher. */
     public static final boolean ENCRYPTED = false;//数据库加密flag
@@ -34,20 +29,15 @@ public class BaseApplication extends DefaultApplicationLike {
 
     private static DaoSession daoSession;
 
-    public BaseApplication(Application application, int tinkerFlags, boolean tinkerLoadVerifyFlag, long applicationStartElapsedTime, long applicationStartMillisTime, Intent tinkerResultIntent) {
-        super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent);
-    }
-
     @Override
-    public void onBaseContextAttached(Context base) {
-        super.onBaseContextAttached(base);
-        TinkerInstaller.install(this);
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        context = getApplication();
+        context = getApplicationContext();
         KLog.init(true,"CHEN");
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(new LoggerInterceptor("CHEN"))

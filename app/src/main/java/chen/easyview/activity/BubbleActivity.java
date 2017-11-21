@@ -14,14 +14,11 @@ import com.daasuu.bl.BubblePopupHelper;
 
 import java.util.Random;
 
-import butterknife.BindView;
 import chen.easyview.R;
 import chen.easyview.base.BaseActivity;
 
 public class BubbleActivity extends BaseActivity {
 
-
-    @BindView(R.id.showBubble)
     Button mShowBubble;
 
     private PopupWindow popupWindow;
@@ -34,6 +31,7 @@ public class BubbleActivity extends BaseActivity {
         final BubbleLayout bubbleLayout = (BubbleLayout) LayoutInflater.from(this).inflate(R.layout.layout_sample_popup, null);
         popupWindow = BubblePopupHelper.create(this, bubbleLayout);
         final Random random = new Random();
+        mShowBubble = findViewById(R.id.showBubble);
         mShowBubble.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
