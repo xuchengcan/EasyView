@@ -9,13 +9,12 @@ import com.DialogBox.Dialogbox_tips;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
-import butterknife.OnClick;
 import chen.easyview.R;
 import chen.easyview.base.BaseActivity;
 import okhttp3.Call;
 
 
-public class ShowActivity extends BaseActivity {
+public class ShowActivity extends BaseActivity implements View.OnClickListener {
 
     Button mShowButton1;
     Button mShowButton2;
@@ -30,9 +29,15 @@ public class ShowActivity extends BaseActivity {
         mShowButton2 = findViewById(R.id.showButton2);
         mShowButton3 = findViewById(R.id.showButton3);
         mShowButton4 = findViewById(R.id.showButton4);
+
+        mShowButton1.setOnClickListener(this);
+        mShowButton2.setOnClickListener(this);
+        mShowButton3.setOnClickListener(this);
+        mShowButton4.setOnClickListener(this);
+
     }
 
-    @OnClick({R.id.showButton1, R.id.showButton2, R.id.showButton3, R.id.showButton4})
+    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.showButton1:
@@ -58,7 +63,7 @@ public class ShowActivity extends BaseActivity {
             case R.id.showButton3:
                 OkHttpUtils.post()
                         .url("http://183.232.33.171/BusService.asmx/GetVersion")
-                        .addHeader("User-Agent","Html5Plus/1.0")
+                        .addHeader("User-Agent", "Html5Plus/1.0")
                         .build()
                         .execute(new StringCallback() {
                             @Override
@@ -74,6 +79,7 @@ public class ShowActivity extends BaseActivity {
                 break;
             case R.id.showButton4:
                 break;
+            default:
         }
     }
 }

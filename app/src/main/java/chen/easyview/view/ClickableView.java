@@ -26,7 +26,7 @@ public class ClickableView extends View {
     // 宽高
     private int mWidth, mHeight;
     // 画笔
-    private Paint mPaint = new Paint();
+    private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Bitmap bitmap;
     private Handler mHandler;
     private int Page = 0;//初始片段
