@@ -13,11 +13,12 @@ android {
         chenkey {
             keyAlias 'chennuo'
             keyPassword 'chennuo'
-            storeFile file('C:/Android/signkey/chen.key.jks')
+//            storeFile file('C:/Android/signkey/chen.key.jks')
             storePassword 'chennuo'
         }
     }
     compileSdkVersion 26
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "chen.easyview"
         minSdkVersion 19
@@ -54,11 +55,12 @@ dependencies {
     //GreenDao
     // 需要加密数据库时可以使用
     // compile 'net.zetetic:android-database-sqlcipher:3.5.4'
+    implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 
     implementation "com.android.support:appcompat-v7:$support_version"
     implementation "com.android.support:recyclerview-v7:$support_version"
     implementation "com.android.support:cardview-v7:$support_version"
-    implementation 'com.github.zhaokaiqiang.klog:library:1.5.0'
+    implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
     implementation 'org.greenrobot:eventbus:3.0.0'
     implementation 'com.google.code.gson:gson:2.8.0'
     implementation 'com.zhy:okhttputils:2.6.2'
@@ -76,4 +78,5 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 }
+
 
