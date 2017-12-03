@@ -8,11 +8,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Handler;
-import android.os.Message;
 import android.util.AttributeSet;
 import android.view.View;
 
 import com.socks.library.KLog;
+
+import java.lang.ref.WeakReference;
 
 import chen.easyview.R;
 
@@ -28,7 +29,7 @@ public class ClickableView extends View {
     // 画笔
     private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Bitmap bitmap;
-    private Handler mHandler;
+    private MyHandler mHandler;
     private int Page = 0;//初始片段
     private int Maxpage = 10;//片段总数
     private int ShowTime = 10;//刷新时间
@@ -39,19 +40,7 @@ public class ClickableView extends View {
         initPaint();
         bitmap = BitmapFactory.decodeResource(mContext.getResources(),R.drawable.im_yes);
 
-        mHandler = new Handler(){
-            @Override
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-
-                if (Page <= Maxpage){
-                    invalidate();
-                    this.sendEmptyMessageDelayed(0, ShowTime);
-                }else {
-//                    invalidate();
-                }
-            }
-        };
+        mHandler = new MyHandler(this);
 
         mHandler.sendEmptyMessageDelayed(0,0);
     }
@@ -124,4 +113,26 @@ public class ClickableView extends View {
     public void stop(){
         mHandler = null;
     }
+
+    static class MyHandler extends Handler {
+        WeakReference<ClickableView> view;
+
+        MyHandler(ClickableView view) {
+            this.view = new WeakReference<ClickableView>(view);
+        }
+
+        @Override
+        public void handleMessage(android.os.Message msg) {
+            ClickableView mview = view.get();
+            mview.play();
+        }
+    }
+
+    private void play(){
+        if (Page <= Maxpage){
+            invalidate();
+            mHandler.sendEmptyMessageDelayed(0, ShowTime);
+        }
+    }
+
 }
