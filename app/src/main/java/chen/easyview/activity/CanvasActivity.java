@@ -11,13 +11,15 @@ import chen.easyview.view.ClickableView;
 
 public class CanvasActivity extends BaseActivity {
 
+    ClickableView canvasTest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         KLog.i();
         setContentView(R.layout.activity_canvas);
 
-        final ClickableView canvasTest = (ClickableView)findViewById(R.id.canvas);
+        canvasTest = (ClickableView)findViewById(R.id.canvas);
         canvasTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,5 +27,11 @@ public class CanvasActivity extends BaseActivity {
                 canvasTest.show();
             }
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        canvasTest.stop();
     }
 }

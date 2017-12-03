@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.socks.library.KLog;
+import com.squareup.leakcanary.LeakCanary;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.log.LoggerInterceptor;
 
@@ -38,6 +39,13 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
+
         KLog.init(true,"CHEN");
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(new LoggerInterceptor("CHEN"))

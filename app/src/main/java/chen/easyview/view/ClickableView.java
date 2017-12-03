@@ -120,4 +120,8 @@ public class ClickableView extends View {
         Page = 0;
         mHandler.sendEmptyMessageDelayed(0,0);
     }
+
+    public void stop(){
+        mHandler = null;
+    }
 }
