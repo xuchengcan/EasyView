@@ -8,11 +8,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Handler;
-import android.os.Message;
 import android.util.AttributeSet;
 import android.view.View;
 
 import com.socks.library.KLog;
+
+import java.lang.ref.WeakReference;
 
 import chen.easyview.R;
 
@@ -28,7 +29,7 @@ public class ClickableView extends View {
     // 画笔
     private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Bitmap bitmap;
-    private Handler mHandler;
+    private MyHandler mHandler;
     private int Page = 0;//初始片段
     private int Maxpage = 10;//片段总数
     private int ShowTime = 10;//刷新时间
@@ -37,23 +38,11 @@ public class ClickableView extends View {
         super(context, attrs);
         this.mContext = context;
         initPaint();
-        bitmap = BitmapFactory.decodeResource(mContext.getResources(),R.drawable.im_yes);
+        bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.im_yes);
 
-        mHandler = new Handler(){
-            @Override
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
+        mHandler = new MyHandler(this);
 
-                if (Page <= Maxpage){
-                    invalidate();
-                    this.sendEmptyMessageDelayed(0, ShowTime);
-                }else {
-//                    invalidate();
-                }
-            }
-        };
-
-        mHandler.sendEmptyMessageDelayed(0,0);
+        mHandler.sendEmptyMessageDelayed(0, 0);
     }
 
     private void initPaint() {
@@ -98,26 +87,56 @@ public class ClickableView extends View {
 
 
         // 将画布坐标系移动到画布中央
-        canvas.translate(mWidth/2-bitmap.getWidth()/2,mHeight/2-bitmap.getWidth()/2);
+        canvas.translate(mWidth / 2 - bitmap.getWidth() / 2, mHeight / 2 - bitmap.getWidth() / 2);
 
-        float r = (float) Math.sqrt(2)*bitmap.getWidth()/2;
-        canvas.drawCircle(bitmap.getWidth()/2,bitmap.getWidth()/2,r,mPaint);
+        float r = (float) Math.sqrt(2) * bitmap.getWidth() / 2;
+        canvas.drawCircle(bitmap.getWidth() / 2, bitmap.getWidth() / 2, r, mPaint);
 
         KLog.i(Page);
         // 指定图片绘制区域(左上角的四分之一)
-        Rect src = new Rect(0,0,bitmap.getWidth()/Maxpage* Page,bitmap.getHeight());
+        Rect src = new Rect(0, 0, bitmap.getWidth() / Maxpage * Page, bitmap.getHeight());
 
         // 指定图片在屏幕上显示的区域
-        Rect dst = new Rect(0,0,bitmap.getWidth()/Maxpage* Page,bitmap.getHeight());
+        Rect dst = new Rect(0, 0, bitmap.getWidth() / Maxpage * Page, bitmap.getHeight());
 
-        canvas.drawBitmap(bitmap,src,dst,new Paint());
+        canvas.drawBitmap(bitmap, src, dst, new Paint());
 
         Page++;
 
     }
 
-    public void show(){
+    public void show() {
         Page = 0;
-        mHandler.sendEmptyMessageDelayed(0,0);
+        mHandler.sendEmptyMessageDelayed(0, 0);
     }
+
+    public void stop() {
+        mHandler = null;
+    }
+
+    static class MyHandler extends Handler {
+        WeakReference<ClickableView> view;
+
+        MyHandler(ClickableView view) {
+            this.view = new WeakReference<ClickableView>(view);
+        }
+
+        @Override
+        public void handleMessage(android.os.Message msg) {
+            ClickableView mview = view.get();
+            if (mview != null) {
+                mview.play();
+            }
+        }
+    }
+
+    private void play() {
+        if (Page <= Maxpage) {
+            invalidate();
+            if (mHandler != null) {
+                mHandler.sendEmptyMessageDelayed(0, ShowTime);
+            }
+        }
+    }
+
 }
