@@ -49,9 +49,9 @@
         </activity>
         <activity android:name=".activity.ShowActivity" />
         <activity android:name=".activity.CanvasActivity" />
-        <activity android:name=".activity.TestViewActivity"></activity>
-        <activity android:name=".activity.TinkerActivity"></activity>
-        <activity android:name=".activity.BubbleActivity"></activity>
+        <activity android:name=".activity.TestViewActivity" />
+        <activity android:name=".activity.TinkerActivity" />
+        <activity android:name=".activity.BubbleActivity" />
         <activity android:name=".activity.NoteActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -69,11 +69,15 @@
                 <data android:mimeType="*/*" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.BaiduTtsActivity"></activity>
-        <activity android:name=".activity.EasyWebViewActivity"></activity>
-        <activity android:name=".activity.ShakeActivity"
-            android:hardwareAccelerated="true"
-            ></activity>
+        <activity android:name=".activity.BaiduTtsActivity" />
+        <activity android:name=".activity.EasyWebViewActivity" />
+        <activity
+            android:name=".activity.ShakeActivity"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name=".activity.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppThemeNoActionBar"></activity>
     </application>
 
 </manifest>

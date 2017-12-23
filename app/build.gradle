@@ -34,7 +34,11 @@ android {
             signingConfig signingConfigs.chenkey
         }
     }
-
+    sourceSets{
+        main{
+            java.srcDirs = ['src/main/java','src/main/aidl']
+        }
+    }
 }
 
 greendao {
@@ -60,6 +64,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$support_version"
     implementation "com.android.support:recyclerview-v7:$support_version"
     implementation "com.android.support:cardview-v7:$support_version"
+    implementation "com.android.support:design:$support_version"
     implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
     implementation 'org.greenrobot:eventbus:3.0.0'
     implementation 'com.google.code.gson:gson:2.8.0'
