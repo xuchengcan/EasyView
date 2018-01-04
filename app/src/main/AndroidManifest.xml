@@ -23,6 +23,9 @@
     <!-- 修改全局声音 -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
+    <!-- 悬浮窗权限-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <!-- 关闭硬件加速android:hardwareAccelerated="false" -->
     <application
         android:name=".base.BaseApplication"
