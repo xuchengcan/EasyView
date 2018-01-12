@@ -9,8 +9,8 @@ public class ActivityBean {
     public Class mAClass;
     public String name;
 
-    public ActivityBean(Class mAClass, String name) {
+    public ActivityBean(Class mAClass) {
         this.mAClass = mAClass;
-        this.name = name;
+        this.name = mAClass.getSimpleName();
     }
 }

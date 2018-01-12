@@ -20,6 +20,7 @@ import chen.easyview.activity.BaiduTtsActivity;
 import chen.easyview.activity.BubbleActivity;
 import chen.easyview.activity.CanvasActivity;
 import chen.easyview.activity.EasyWebViewActivity;
+import chen.easyview.activity.MessengerActivity;
 import chen.easyview.activity.NoteActivity;
 import chen.easyview.activity.ScrollingActivity;
 import chen.easyview.activity.ShakeActivity;
@@ -53,15 +54,16 @@ public class MainActivity extends BaseActivity {
 
     private void initList() {
         mActivities = new ArrayList<>();
-        mActivities.add(new ActivityBean(ShowActivity.class,ShowActivity.class.getSimpleName()));
-        mActivities.add(new ActivityBean(CanvasActivity.class,CanvasActivity.class.getSimpleName()));
-        mActivities.add(new ActivityBean(TestViewActivity.class,TestViewActivity.class.getSimpleName()));
-        mActivities.add(new ActivityBean(BubbleActivity.class,BubbleActivity.class.getSimpleName()));
-        mActivities.add(new ActivityBean(NoteActivity.class,NoteActivity.class.getSimpleName()));
-        mActivities.add(new ActivityBean(BaiduTtsActivity.class,BaiduTtsActivity.class.getSimpleName()));
-        mActivities.add(new ActivityBean(EasyWebViewActivity.class,EasyWebViewActivity.class.getSimpleName()));
-        mActivities.add(new ActivityBean(ShakeActivity.class,ShakeActivity.class.getSimpleName()));
-        mActivities.add(new ActivityBean(ScrollingActivity.class,ScrollingActivity.class.getSimpleName()));
+        mActivities.add(new ActivityBean(ShowActivity.class));
+        mActivities.add(new ActivityBean(CanvasActivity.class));
+        mActivities.add(new ActivityBean(TestViewActivity.class));
+        mActivities.add(new ActivityBean(BubbleActivity.class));
+        mActivities.add(new ActivityBean(NoteActivity.class));
+        mActivities.add(new ActivityBean(BaiduTtsActivity.class));
+        mActivities.add(new ActivityBean(EasyWebViewActivity.class));
+        mActivities.add(new ActivityBean(ShakeActivity.class));
+        mActivities.add(new ActivityBean(ScrollingActivity.class));
+        mActivities.add(new ActivityBean(MessengerActivity.class));
     }
 
 
