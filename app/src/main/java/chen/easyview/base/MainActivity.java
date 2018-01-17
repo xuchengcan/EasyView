@@ -17,6 +17,7 @@ import java.util.List;
 
 import chen.easyview.R;
 import chen.easyview.activity.BaiduTtsActivity;
+import chen.easyview.activity.BookManagerActivity;
 import chen.easyview.activity.BubbleActivity;
 import chen.easyview.activity.CanvasActivity;
 import chen.easyview.activity.EasyWebViewActivity;
@@ -64,6 +65,7 @@ public class MainActivity extends BaseActivity {
         mActivities.add(new ActivityBean(ShakeActivity.class));
         mActivities.add(new ActivityBean(ScrollingActivity.class));
         mActivities.add(new ActivityBean(MessengerActivity.class));
+        mActivities.add(new ActivityBean(BookManagerActivity.class));
     }
 
 
