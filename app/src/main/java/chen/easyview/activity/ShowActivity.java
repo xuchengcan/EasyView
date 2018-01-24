@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.DialogBox.Dialogbox_tips;
 import com.PermissionHelp.PermissionsPageManager;
+import com.view.DialogBox.Dialogbox_tips;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -77,7 +77,11 @@ public class ShowActivity extends BaseActivity implements View.OnClickListener {
                         });
                 break;
             case R.id.showButton4:
-                startActivity(new Intent(PermissionsPageManager.getIntent(ShowActivity.this)));
+                try {
+                    startActivity(PermissionsPageManager.getIntent(ShowActivity.this));
+                } catch (Exception e) {
+                    showToast("请到权限管理中心开启所需权限");
+                }
                 break;
             default:
         }

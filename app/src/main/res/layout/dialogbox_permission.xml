@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.view.percentlayout.PercentFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000">
+
+    <com.view.percentlayout.PercentFrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_white"
+        app:layout_widthPercent="80%sw">
+
+        <com.view.percentlayout.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:src="@drawable/ic_permission"
+                app:layout_marginTopPercent="6%sw"
+                app:layout_heightPercent="50%sw" />
+
+            <com.view.percentlayout.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_paddingLeftPercent="6%sw"
+                app:layout_paddingRightPercent="6%sw">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical"
+                    android:text="权限设置"
+                    android:textColor="#333333"
+                    app:layout_heightPercent="10%sw"
+                    app:layout_textSizePercent="4.6%sw" />
+
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="1dp"
+                    android:lineSpacingMultiplier="1.1"
+                    android:text="App需要授权开启各类权限。。。。。。。。。。。。。。。。。。。"
+                    android:textColor="#666666"
+                    app:layout_textSizePercent="3.9%sw" />
+            </com.view.percentlayout.PercentLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/gray_bg_e" />
+
+            <com.view.percentlayout.PercentLinearLayout
+                android:id="@+id/pll_choose"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_heightPercent="14%sw">
+
+                <TextView
+                    android:id="@+id/tv_cancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:gravity="center"
+                    android:text="取消"
+                    android:textColor="@color/gray_word"
+                    app:layout_textSizePercent="4.6%sw" />
+
+                <View
+                    android:id="@+id/v"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_bg_e" />
+
+                <TextView
+                    android:id="@+id/tv_ok"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:gravity="center"
+                    android:text="确定"
+                    android:textColor="@color/mainblue"
+                    app:layout_textSizePercent="4.6%sw" />
+            </com.view.percentlayout.PercentLinearLayout>
+
+            <com.view.percentlayout.PercentLinearLayout
+                android:id="@+id/pll_set"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_heightPercent="18%sw">
+
+                <TextView
+                    android:id="@+id/tv_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/boder_blue_delete"
+                    android:gravity="center"
+
+                    android:text="开始授权"
+                    android:textColor="@color/white"
+                    app:layout_marginBottomPercent="6%sw"
+                    app:layout_marginLeftPercent="6%sw"
+                    app:layout_marginRightPercent="6%sw"
+                    app:layout_textSizePercent="4.6%sw" />
+
+            </com.view.percentlayout.PercentLinearLayout>
+
+        </com.view.percentlayout.PercentLinearLayout>
+
+    </com.view.percentlayout.PercentFrameLayout>
+
+</com.view.percentlayout.PercentFrameLayout>
+

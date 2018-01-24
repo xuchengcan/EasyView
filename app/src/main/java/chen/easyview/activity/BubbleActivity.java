@@ -45,7 +45,6 @@ public class BubbleActivity extends BaseActivity {
                 bubbleLayout.setArrowHeight(0);
                 bubbleLayout.setArrowWidth(0);
                 bubbleLayout.setArrowPosition(0);
-                bubbleLayout.setBubbleColor(Color.CYAN);
                 bubbleLayout.setCornersRadius(5);
                 bubbleLayout.setStrokeWidth(2);
                 bubbleLayout.setStrokeColor(Color.YELLOW);

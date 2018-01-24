@@ -63,17 +63,22 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
+
     /**
      * 框架使用的沉浸式,这个比较好,能在布局里面少些代码
      */
-    private void setImmersive() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setTranslucentStatus(true);
-        }
+    @TargetApi(19)
+    protected void setImmersive() {
+        setTranslucentStatus(true);
+        setStatusBarTintResource(R.color.mainblue);
+    }
+
+    @TargetApi(19)
+    protected void setStatusBarTintResource(int color) {
         //为状态栏着色
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
-        tintManager.setStatusBarTintResource(R.color.mainblue);
+        tintManager.setStatusBarTintResource(color);
     }
 
     @TargetApi(19)

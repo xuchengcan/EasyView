@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.view.percentlayout.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <com.view.percentlayout.PercentLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_white"
+        android:orientation="vertical"
+        app:layout_paddingLeftPercent="2%w"
+        app:layout_paddingRightPercent="2%w"
+        app:layout_widthPercent="85%w">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="请输入"
+            android:textColor="@color/mainblue"
+            app:layout_marginLeftPercent="6%w"
+            app:layout_marginTopPercent="6%w"
+            app:layout_textSizePercent="6.5%w" />
+
+        <com.view.percentlayout.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_marginBottomPercent="2%h"
+            app:layout_marginLeftPercent="8%w"
+            app:layout_marginRightPercent="8%w"
+            app:layout_marginTopPercent="2%h">
+
+            <EditText
+                android:id="@+id/et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"/>
+
+        </com.view.percentlayout.PercentLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_bg_e" />
+
+        <com.view.percentlayout.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/gray_word"
+                app:layout_textSizePercent="6.5%w" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray_bg_e" />
+
+            <TextView
+                android:id="@+id/tv_ok"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@color/orange"
+                app:layout_textSizePercent="6.5%w" />
+        </com.view.percentlayout.PercentLinearLayout>
+
+    </com.view.percentlayout.PercentLinearLayout>
+</com.view.percentlayout.PercentRelativeLayout>
+
