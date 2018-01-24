@@ -1,4 +1,4 @@
-package com.DialogBox;
+package com.view.DialogBox;
 
 import android.app.Dialog;
 import android.content.Context;
