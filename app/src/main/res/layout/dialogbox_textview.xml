@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.android.percent.support.PercentFrameLayout
+<com.view.percentlayout.PercentFrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#00000000">
 
-    <com.zhy.android.percent.support.PercentFrameLayout
+    <com.view.percentlayout.PercentFrameLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/border_white"
         app:layout_widthPercent="85%w">
 
-        <com.zhy.android.percent.support.PercentLinearLayout
+        <com.view.percentlayout.PercentLinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -29,7 +29,7 @@
                 app:layout_heightPercent="12.5%w"
                 app:layout_textSizePercent="6.5%w"/>
 
-            <com.zhy.android.percent.support.PercentRelativeLayout
+            <com.view.percentlayout.PercentRelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00000000"
@@ -47,7 +47,7 @@
                     android:text="提示内容"
                     android:textColor="@color/vivo_black"
                     app:layout_textSizePercent="6.2%w"/>
-            </com.zhy.android.percent.support.PercentRelativeLayout>
+            </com.view.percentlayout.PercentRelativeLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                 android:layout_marginTop="1dp"
                 android:background="@color/gray_bg_e"/>
 
-            <com.zhy.android.percent.support.PercentLinearLayout
+            <com.view.percentlayout.PercentLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
@@ -90,9 +90,11 @@
                     android:text="确定"
                     android:textColor="@color/orange"
                     app:layout_textSizePercent="6.5%w"/>
-            </com.zhy.android.percent.support.PercentLinearLayout>
+            </com.view.percentlayout.PercentLinearLayout>
 
-        </com.zhy.android.percent.support.PercentLinearLayout>
-    </com.zhy.android.percent.support.PercentFrameLayout>
-</com.zhy.android.percent.support.PercentFrameLayout>
+        </com.view.percentlayout.PercentLinearLayout>
+
+    </com.view.percentlayout.PercentFrameLayout>
+
+</com.view.percentlayout.PercentFrameLayout>
 

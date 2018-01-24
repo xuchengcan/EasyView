@@ -40,7 +40,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppThemeNoActionBar">
+        android:theme="@style/app_theme">
 
         <!-- "@style/AppTheme" -->
         <!-- "@style/AppThemeNoActionBar" -->
@@ -85,8 +85,7 @@
             android:hardwareAccelerated="true" />
         <activity
             android:name=".activity.ScrollingActivity"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppThemeNoActionBar" />
+            android:label="@string/title_activity_scrolling" />
 
         <service
             android:name=".service.MessengerService"
@@ -96,6 +95,13 @@
         <service android:name=".service.BookManagerService"
             android:process=":remote" />
         <activity android:name=".activity.BookManagerActivity" />
+
+        <activity android:name=".activity.MessengerActivity"></activity>
+
+        <activity
+            android:name=".activity.PermissionActivity"
+            android:theme="@style/translucent_theme">
+        </activity>
 
     </application>
 

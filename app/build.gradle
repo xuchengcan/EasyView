@@ -53,8 +53,8 @@ greendao {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
@@ -75,7 +75,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.0'
     implementation 'com.zhy:okhttputils:2.6.2'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
-    implementation 'com.zhy:percent-support-extends:1.1.1'
     implementation 'org.greenrobot:greendao:3.2.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
@@ -88,10 +87,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 
-    implementation 'org.tensorflow:tensorflow-android:+'
+//    implementation 'org.tensorflow:tensorflow-android:1.5.0-rc0'
 }
 
 
