@@ -96,8 +96,6 @@
             android:process=":remote" />
         <activity android:name=".activity.BookManagerActivity" />
 
-        <activity android:name=".activity.MessengerActivity"></activity>
-
         <activity
             android:name=".activity.PermissionActivity"
             android:theme="@style/translucent_theme">
