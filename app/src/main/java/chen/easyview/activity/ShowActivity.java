@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.DialogBox.Dialogbox_tips;
+import com.manufacturer.PermissionsPageManager;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -50,9 +51,7 @@ public class ShowActivity extends BaseActivity implements View.OnClickListener {
             case R.id.showButton2:
                 Dialogbox_tips.newInstance(this)
                         .setTitle("提示")
-                        .setContent("1、使用的撒反对是覅急啊卡积分；啊老看见对方\n2、但是发射点犯得上犯得上" +
-                                "\n3、adfasdfadfsfafdadfasdfasdfadf" +
-                                "\n4、是打发打发啊发生的地方是")
+                        .setContent("就是个提示")
                         .setOnCallback(new Dialogbox_tips.OnCallback() {
                             @Override
                             public void callback(Dialogbox_tips.DialogObject dialogObject) {
@@ -78,6 +77,7 @@ public class ShowActivity extends BaseActivity implements View.OnClickListener {
                         });
                 break;
             case R.id.showButton4:
+                startActivity(new Intent(PermissionsPageManager.getIntent(ShowActivity.this)));
                 break;
             default:
         }
