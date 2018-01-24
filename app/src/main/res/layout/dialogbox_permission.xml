@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="1dp"
                     android:lineSpacingMultiplier="1.1"
-                    android:text="App需要授权开启各类权限。。。。。。。。。。。。。。。。。。。"
+                    android:text="App需要授权开启各类权限。。。。。。。。。。。。。。。。。。"
                     android:textColor="#666666"
                     app:layout_textSizePercent="3.9%sw" />
             </com.view.percentlayout.PercentLinearLayout>
