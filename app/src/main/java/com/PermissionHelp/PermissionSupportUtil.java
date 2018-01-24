@@ -1,19 +1,19 @@
-package com.manufacturer;
+package com.PermissionHelp;
 
 import android.os.Build;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.manufacturer.PermissionsPageManager.MANUFACTURER_MEIZU;
-import static com.manufacturer.PermissionsPageManager.MANUFACTURER_OPPO;
-import static com.manufacturer.PermissionsPageManager.MANUFACTURER_XIAOMI;
+import static com.PermissionHelp.PermissionsPageManager.MANUFACTURER_MEIZU;
+import static com.PermissionHelp.PermissionsPageManager.MANUFACTURER_OPPO;
+import static com.PermissionHelp.PermissionsPageManager.MANUFACTURER_XIAOMI;
 
 /**
  * Created by joker on 2017/9/16.
  */
 
-public class ManufacturerSupportUtil {
+public class PermissionSupportUtil {
     private static String[] forceManufacturers = {MANUFACTURER_XIAOMI, MANUFACTURER_MEIZU};
     private static Set<String> forceSet = new HashSet<>(Arrays.asList(forceManufacturers));
     private static String[] underMHasPermissionsRequestManufacturer = {MANUFACTURER_XIAOMI,

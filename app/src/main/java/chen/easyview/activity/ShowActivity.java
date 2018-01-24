@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.DialogBox.Dialogbox_tips;
-import com.manufacturer.PermissionsPageManager;
+import com.PermissionHelp.PermissionsPageManager;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 

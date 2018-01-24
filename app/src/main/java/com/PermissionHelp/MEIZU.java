@@ -1,4 +1,4 @@
-package com.manufacturer;
+package com.PermissionHelp;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -31,7 +31,7 @@ public class MEIZU implements PermissionsPage {
     }
 
     private String getCls() {
-        if (ManufacturerSupportUtil.isAndroidL()) {
+        if (PermissionSupportUtil.isAndroidL()) {
             return L_MANAGER_OUT_CLS;
         } else {
             return N_MANAGER_OUT_CLS;

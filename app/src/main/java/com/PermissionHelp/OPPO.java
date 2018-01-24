@@ -1,4 +1,4 @@
-package com.manufacturer;
+package com.PermissionHelp;
 
 import android.app.Activity;
 import android.content.ComponentName;
