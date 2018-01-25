@@ -13,7 +13,7 @@
         android:orientation="vertical"
         app:layout_paddingLeftPercent="2%w"
         app:layout_paddingRightPercent="2%w"
-        app:layout_widthPercent="85%w">
+        app:layout_widthPercent="68%sw">
 
         <TextView
             android:id="@+id/tv_title"
@@ -22,19 +22,19 @@
             android:gravity="center_vertical"
             android:text="请输入"
             android:textColor="@color/mainblue"
-            app:layout_marginLeftPercent="6%w"
-            app:layout_marginTopPercent="6%w"
-            app:layout_textSizePercent="6.5%w" />
+            app:layout_marginLeftPercent="4%sw"
+            app:layout_marginTopPercent="4%sw"
+            app:layout_textSizePercent="4.6%sw"/>
 
         <com.view.percentlayout.PercentLinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            app:layout_marginBottomPercent="2%h"
-            app:layout_marginLeftPercent="8%w"
-            app:layout_marginRightPercent="8%w"
-            app:layout_marginTopPercent="2%h">
+            app:layout_marginBottomPercent="3%sw"
+            app:layout_marginLeftPercent="8%sw"
+            app:layout_marginRightPercent="8%sw"
+            app:layout_marginTopPercent="3%sw">
 
             <EditText
                 android:id="@+id/et"
@@ -57,13 +57,14 @@
             <TextView
                 android:id="@+id/tv_cancel"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00000000"
                 android:gravity="center"
                 android:text="取消"
                 android:textColor="@color/gray_word"
-                app:layout_textSizePercent="6.5%w" />
+                app:layout_heightPercent="11%sw"
+                app:layout_textSizePercent="4.2%sw" />
 
             <View
                 android:layout_width="1dp"
@@ -73,13 +74,15 @@
             <TextView
                 android:id="@+id/tv_ok"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#00000000"
                 android:gravity="center"
                 android:text="确定"
                 android:textColor="@color/orange"
-                app:layout_textSizePercent="6.5%w" />
+                app:layout_heightPercent="11%sw"
+                app:layout_textSizePercent="4.2%sw" />
+
         </com.view.percentlayout.PercentLinearLayout>
 
     </com.view.percentlayout.PercentLinearLayout>

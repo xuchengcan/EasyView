@@ -8,6 +8,8 @@ import android.widget.Button;
 import com.PermissionHelp.PermissionsPageManager;
 import com.socks.library.KLog;
 import com.utils.DoubleClickUtils;
+import com.view.DialogBox.Dialogbox_edittext;
+import com.view.DialogBox.Dialogbox_permission;
 import com.view.DialogBox.Dialogbox_tips;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -90,6 +92,40 @@ public class ShowActivity extends BaseActivity implements View.OnClickListener {
                 } catch (Exception e) {
                     showToast("请到权限管理中心开启所需权限");
                 }
+                break;
+            case R.id.text1:
+                Dialogbox_permission.newInstance(ShowActivity.this)
+                        .setTitle("获取权限")
+                        .setContent("一个权限")
+                        .setCancel("残忍拒绝")
+                        .setOk("重新授权")
+                        .setOnCallback(
+                                new Dialogbox_permission.OnCallback() {
+                                    @Override
+                                    public void callback(Dialogbox_permission.DialogObject dialogObject) {
+                                        dialogObject.dialog.cancel();
+                                    }
+                                }
+                        )
+                        .setCancelOnCallback(new Dialogbox_permission.OnCallback() {
+                            @Override
+                            public void callback(Dialogbox_permission.DialogObject dialogObject) {
+                                finish();
+                            }
+                        }).show();
+                break;
+            case R.id.text2:
+                Dialogbox_edittext.newInstance(ShowActivity.this)
+                        .setTitle("请编辑")
+                        .setHint("你有想说的话么？")
+                        .setOk("对的")
+                        .setCancel("再见")
+                        .setOnCallback(new Dialogbox_edittext.OnCallback() {
+                            @Override
+                            public void callback(Dialogbox_edittext.DialogObject dialogObject) {
+                                dialogObject.dialog.dismiss();
+                            }
+                        }).show();
                 break;
             default:
         }
