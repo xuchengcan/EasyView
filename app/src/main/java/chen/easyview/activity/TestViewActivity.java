@@ -1,8 +1,12 @@
 package chen.easyview.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.WindowManager;
@@ -67,8 +71,19 @@ public class TestViewActivity extends AppCompatActivity {
         //设置悬浮窗口长宽数据
         wmParams.width = 100;
         wmParams.height = 100;
-        //显示myFloatView图像
-        wm.addView(myFV, wmParams);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (Settings.canDrawOverlays(this)){
+                //显示myFloatView图像
+                wm.addView(myFV, wmParams);
+            }else {
+                requestAlertWindowPermission();
+            }
+        }else {
+            //显示myFloatView图像
+            wm.addView(myFV, wmParams);
+        }
+
     }
 
     @Override
@@ -81,5 +96,24 @@ public class TestViewActivity extends AppCompatActivity {
 
         wm.removeView(myFV);
 
+    }
+
+    private static final int REQUEST_CODE = 1;
+    private  void requestAlertWindowPermission() {
+        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+        intent.setData(Uri.parse("package:" + getPackageName()));
+        startActivityForResult(intent, REQUEST_CODE);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (Settings.canDrawOverlays(this)) {
+                    //显示myFloatView图像
+                    wm.addView(myFV, wmParams);
+                }
+            }
+        }
     }
 }

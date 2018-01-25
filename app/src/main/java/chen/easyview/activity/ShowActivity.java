@@ -36,6 +36,8 @@ public class ShowActivity extends BaseActivity implements View.OnClickListener {
         mShowButton3.setOnClickListener(this);
         mShowButton4.setOnClickListener(this);
 
+        findViewById(R.id.text1).setOnClickListener(this);
+        findViewById(R.id.text2).setOnClickListener(this);
     }
 
     @Override

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.view.percentlayout.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_show"
@@ -36,4 +36,32 @@
         android:layout_marginTop="20dp"
         android:text="应用权限跳转" />
 
-</LinearLayout>
+    <com.view.RTextView
+        android:id="@+id/text1"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="背景\n变色"
+        android:textColor="@android:color/holo_blue_bright"
+        app:background_pressed="#FF450F21"
+        app:border_color_normal="@color/colorAccent"
+        app:border_width_normal="3dp"
+        app:corner_radius="50dp"
+        app:layout_widthPercent="60%sw" />
+
+    <com.view.RTextView
+        android:id="@+id/text2"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:text="背景+边框\n变色"
+        android:textColor="@android:color/holo_red_dark"
+        app:background_pressed="#FF450F21"
+        app:border_color_normal="@color/colorAccent"
+        app:border_color_pressed="@color/colorPrimary"
+        app:border_width_normal="1dp"
+        app:corner_radius="10dp" />
+
+</com.view.percentlayout.PercentLinearLayout>
