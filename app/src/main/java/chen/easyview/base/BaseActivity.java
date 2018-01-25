@@ -23,7 +23,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import chen.easyview.R;
-import chen.easyview.utils.TextUtil;
+import com.utils.TextUtils;
 
 /**
  * Created by Chen on 2017/1/23.
@@ -56,7 +56,7 @@ public class BaseActivity extends AppCompatActivity {
 
     public void showToast(String content) {
 
-        if (TextUtil.isValidate(content)) {
+        if (TextUtils.isValidate(content)) {
             Toast.makeText(BaseApplication.getContext(), content, Toast.LENGTH_SHORT).show();
             //  Snackbar.make(getWindow().getDecorView(), content, Snackbar.LENGTH_LONG).show();
         }

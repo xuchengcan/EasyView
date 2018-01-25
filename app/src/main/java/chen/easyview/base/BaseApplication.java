@@ -1,11 +1,14 @@
 package chen.easyview.base;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.WindowManager;
 
 import com.socks.library.KLog;
 import com.squareup.leakcanary.LeakCanary;
+import com.utils.DisplayUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.log.LoggerInterceptor;
 
@@ -46,8 +49,8 @@ public class BaseApplication extends Application {
             return;
         }
         LeakCanary.install(this);
-
         KLog.init(true,"CHEN");
+        DisplayUtils.init(context);
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(new LoggerInterceptor("CHEN"))
                 .connectTimeout(10000L, TimeUnit.MILLISECONDS)
@@ -60,6 +63,8 @@ public class BaseApplication extends Application {
         //数据库密码super-secret
         Database db = ENCRYPTED ? helper.getEncryptedWritableDb("super-secret") : helper.getWritableDb();
         daoSession = new DaoMaster(db).newSession();
+
+        registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
 
     }
 
@@ -83,4 +88,41 @@ public class BaseApplication extends Application {
     public WindowManager.LayoutParams getMywmParams(){
         return wmParams;
     }
+
+    private ActivityLifecycleCallbacks activityLifecycleCallbacks = new ActivityLifecycleCallbacks() {
+        @Override
+        public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+            KLog.i(activity.getClass().getSimpleName());
+        }
+
+        @Override
+        public void onActivityStarted(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityResumed(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityPaused(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityStopped(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+
+        }
+
+        @Override
+        public void onActivityDestroyed(Activity activity) {
+
+        }
+    };
 }

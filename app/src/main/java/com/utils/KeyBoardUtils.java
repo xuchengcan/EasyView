@@ -1,4 +1,4 @@
-package chen.easyview.utils;
+package com.utils;
 
 import android.content.Context;
 import android.os.IBinder;
@@ -8,13 +8,13 @@ import android.widget.EditText;
 import chen.easyview.base.BaseApplication;
 
 /**
- * Created by chen on 2017/2/17.
+ * Created by chennuo on 2018/1/25.
  */
 
-public class KeyboardUtils {
+public class KeyBoardUtils {
 
     /**
-     * 打卡软键盘
+     * 打开软键盘
      *
      * @param mContext  上下文
      * @param mEditText 输入框
@@ -23,7 +23,6 @@ public class KeyboardUtils {
         InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(mEditText, InputMethodManager.RESULT_SHOWN);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-        mEditText.requestFocus();
     }
 
     /**
@@ -40,4 +39,5 @@ public class KeyboardUtils {
         InputMethodManager imm = (InputMethodManager) BaseApplication.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(iBinder, 0);
     }
+
 }

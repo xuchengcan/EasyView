@@ -97,8 +97,8 @@ public class PercentLayoutHelper {
 
 
 //            else {
-//                mWidthScreen = LocalDisplay.SCREEN_WIDTH_PIXELS;
-//                mHeightScreen = LocalDisplay.SCREEN_HEIGHT_PIXELS;
+//                mWidthScreen = DisplayUtils.SCREEN_WIDTH_PIXELS;
+//                mHeightScreen = DisplayUtils.SCREEN_HEIGHT_PIXELS;
 //            }
         }
     }

@@ -1,4 +1,4 @@
-package chen.easyview.utils;
+package com.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

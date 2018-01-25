@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import chen.easyview.R;
-import chen.easyview.utils.TextUtil;
+import com.utils.TextUtils;
 
 
 /**
@@ -89,26 +89,26 @@ public class Dialogbox_edittext extends Dialog {
     }
 
     public Dialogbox_edittext setCancel(String cancel) {
-        if (TextUtil.isValidate(cancel))
+        if (TextUtils.isValidate(cancel))
             tv_cancel.setText(cancel);
         return this;
     }
 
 
     public Dialogbox_edittext setTitle(String title) {
-        if (TextUtil.isValidate(title))
+        if (TextUtils.isValidate(title))
             tv_title.setText(title);
         return this;
     }
 
     public Dialogbox_edittext setOk(String ok) {
-        if (TextUtil.isValidate(ok))
+        if (TextUtils.isValidate(ok))
             tv_ok.setText(ok);
         return this;
     }
 
     public Dialogbox_edittext setHint(String hint) {
-        if (TextUtil.isValidate(hint)) {
+        if (TextUtils.isValidate(hint)) {
             this.hint = hint;
         }
         return this;
@@ -138,7 +138,7 @@ public class Dialogbox_edittext extends Dialog {
     private String text = "";
 
     public Dialogbox_edittext setText(String text) {
-        if (TextUtil.isValidate(text)) {
+        if (TextUtils.isValidate(text)) {
             this.text = text;
         }
         return this;
@@ -163,12 +163,12 @@ public class Dialogbox_edittext extends Dialog {
         //弹出软键盘
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
 
-        if (TextUtil.isValidate(hint))
+        if (TextUtils.isValidate(hint))
             et.setHint(hint);
         if (inputtype != -1)
             et.setInputType(inputtype);
         //该方法需放在setInputType后，setSelection光标才能跳到最后
-        if (TextUtil.isValidate(text)) {
+        if (TextUtils.isValidate(text)) {
             et.setText(text);
             et.setSelection(text.length());//光标跳到最后
         }

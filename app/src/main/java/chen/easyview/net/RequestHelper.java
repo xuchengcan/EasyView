@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import chen.easyview.bean.JsonResultBean;
-import chen.easyview.utils.TextUtil;
+import com.utils.TextUtils;
 
 public class RequestHelper {
 
@@ -40,7 +40,7 @@ public class RequestHelper {
      */
     public static String getRequestUrl(String url, Map<String, String> params) {
         try {
-            if (!TextUtil.isValidate(params)) {
+            if (!TextUtils.isValidate(params)) {
                 return url;
             }
             StringBuilder sb = new StringBuilder(url);

@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.PermissionHelp.PermissionsPageManager;
+import com.socks.library.KLog;
+import com.utils.DoubleClickUtils;
 import com.view.DialogBox.Dialogbox_tips;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -62,6 +64,10 @@ public class ShowActivity extends BaseActivity implements View.OnClickListener {
                         }).show();
                 break;
             case R.id.showButton3:
+                if (DoubleClickUtils.isDoubleClick()){
+                    KLog.e("----1s---");
+                    return;
+                }
                 OkHttpUtils.post()
                         .url("http://183.232.33.171/BusService.asmx/GetVersion")
                         .addHeader("User-Agent", "Html5Plus/1.0")

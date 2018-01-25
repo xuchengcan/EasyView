@@ -22,12 +22,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.socks.library.KLog;
+import com.utils.KeyBoardUtils;
+import com.utils.NetUtils;
+import com.utils.TextUtils;
 
 import chen.easyview.R;
 import chen.easyview.base.BaseActivity;
-import chen.easyview.utils.KeyboardUtils;
-import chen.easyview.utils.NetUtils;
-import chen.easyview.utils.TextUtil;
 
 /**
  * Created by chen on 2017/2/17.
@@ -67,12 +67,12 @@ public class EasyWebViewActivity extends BaseActivity {
             public void onClick(View v) {
                 if (input.getVisibility() == View.VISIBLE) {
                     input.setVisibility(View.GONE);
-                    KeyboardUtils.closeKeyboard(input);
+                    KeyBoardUtils.closeKeyboard(input);
                 } else {
                     input.setVisibility(View.VISIBLE);
                     input.setText(mWebTitle);
                     input.setSelection(input.length());
-                    KeyboardUtils.openKeyboard(EasyWebViewActivity.this,input);
+                    KeyBoardUtils.openKeyboard(EasyWebViewActivity.this,input);
                 }
             }
         });
@@ -95,7 +95,7 @@ public class EasyWebViewActivity extends BaseActivity {
                     mWebView.loadUrl(input.getText().toString());
                     input.setVisibility(View.GONE);
                     ll_failedload.setVisibility(View.GONE);
-                    KeyboardUtils.closeKeyboard(input);
+                    KeyBoardUtils.closeKeyboard(input);
                     return true;
                 }
                 return false;
@@ -106,14 +106,14 @@ public class EasyWebViewActivity extends BaseActivity {
     private void initData() {
         mUrl = getIntent().getStringExtra(URL);
         mTitle = getIntent().getStringExtra("TITLE");
-        if (TextUtil.isValidate(mTitle)) {
+        if (TextUtils.isValidate(mTitle)) {
             mWebTitle = mTitle; // WebTitle作为动态改变的title的判断依据；
             mToolbar.setTitle(mTitle);
         } else {
             mWebTitle = "";
             mToolbar.setTitle(mTitle);
         }
-        if (TextUtil.isValidate(mUrl)) {
+        if (TextUtils.isValidate(mUrl)) {
             KLog.e(mUrl);
             initWebView(mUrl);
         } else {
@@ -209,7 +209,7 @@ public class EasyWebViewActivity extends BaseActivity {
             mWebView.destroy();
             mWebView = null;
         }
-        KeyboardUtils.closeKeyboard(input);
+        KeyBoardUtils.closeKeyboard(input);
         super.onDestroy();
     }
 

@@ -8,7 +8,7 @@ import android.graphics.PaintFlagsDrawFilter;
 import android.util.AttributeSet;
 import android.view.View;
 
-import chen.easyview.utils.ScreenUtils;
+import com.utils.DisplayUtils;
 
 /**
  * Created by chen on 2017/1/18.
@@ -48,8 +48,8 @@ public class WaterWare extends View {
     public WaterWare(Context context, AttributeSet attrs) {
         super(context, attrs);
         // 将dp转化为px，用于控制不同分辨率上移动速度基本一致
-        mXOffsetSpeedOne = ScreenUtils.dp2px(context, TRANSLATE_X_SPEED_ONE);
-        mXOffsetSpeedTwo = ScreenUtils.dp2px(context, TRANSLATE_X_SPEED_TWO);
+        mXOffsetSpeedOne = DisplayUtils.dp2px(TRANSLATE_X_SPEED_ONE);
+        mXOffsetSpeedTwo = DisplayUtils.dp2px(TRANSLATE_X_SPEED_TWO);
 
         // 初始绘制波纹的画笔
         mWavePaint = new Paint();

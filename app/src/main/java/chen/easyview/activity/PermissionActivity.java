@@ -26,7 +26,7 @@ import java.util.Arrays;
 
 import chen.easyview.R;
 import chen.easyview.base.BaseActivity;
-import chen.easyview.utils.TextUtil;
+import com.utils.TextUtils;
 
 public class PermissionActivity extends BaseActivity {
 
@@ -52,7 +52,7 @@ public class PermissionActivity extends BaseActivity {
         });
 
         String mPermission = getIntent().getStringExtra(PERMISSION);
-        if (!TextUtil.isValidate(mPermission))
+        if (!TextUtils.isValidate(mPermission))
             return;
         checkPermission(mPermission, REQUEST_Code);
 
@@ -317,7 +317,7 @@ public class PermissionActivity extends BaseActivity {
     }
 
     private Spanned getString(String permission) {
-        if (!TextUtil.isValidate(permission)) {
+        if (!TextUtils.isValidate(permission)) {
             return Html.fromHtml("完善App功能需要该权限");
         }
         switch (permission) {
@@ -340,7 +340,7 @@ public class PermissionActivity extends BaseActivity {
     }
 
     private Spanned getString2(String permission) {
-        if (!TextUtil.isValidate(permission)) {
+        if (!TextUtils.isValidate(permission)) {
             return Html.fromHtml("权限缺少将对体验造成较大影响");
         }
         switch (permission) {
