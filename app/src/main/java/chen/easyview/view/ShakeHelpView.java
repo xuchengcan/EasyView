@@ -39,7 +39,7 @@ public class ShakeHelpView extends View {
         Resources resources = this.getResources();
         DisplayMetrics dm = resources.getDisplayMetrics();
         width = dm.widthPixels;
-        height = width * 0.37f;
+        height = width * 0.4f;
         int color3 = Color.parseColor("#5dd7fe");
         int color4 = Color.parseColor("#0489f8");
         paint2.setShader(new LinearGradient(300, 0, 300, height, color3, color4, Shader.TileMode.CLAMP));

@@ -49,7 +49,7 @@ public class ShakeView extends View {
         Resources resources = this.getResources();
         DisplayMetrics dm = resources.getDisplayMetrics();
         width = dm.widthPixels;
-        height = width * 0.37f;
+        height = width * 0.4f;
         paint.setStyle(Paint.Style.FILL);
         int color1 = Color.parseColor("#ffffff");
         int color2 = Color.parseColor("#00000000");//0098de

@@ -20,13 +20,13 @@ import android.view.View;
 
 import com.PermissionHelp.PermissionsPageManager;
 import com.socks.library.KLog;
+import com.utils.TextUtils;
 import com.view.DialogBox.Dialogbox_permission;
 
 import java.util.Arrays;
 
 import chen.easyview.R;
 import chen.easyview.base.BaseActivity;
-import com.utils.TextUtils;
 
 public class PermissionActivity extends BaseActivity {
 
@@ -40,7 +40,6 @@ public class PermissionActivity extends BaseActivity {
 
         setContentView(R.layout.layout_permission);
 
-        setTranslucentStatus(true);
         //为状态栏着色
         setStatusBarTintResource(Color.TRANSPARENT);
         KLog.e(Build.FINGERPRINT);

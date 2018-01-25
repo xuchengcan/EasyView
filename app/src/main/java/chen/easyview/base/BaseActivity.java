@@ -18,12 +18,12 @@ import android.widget.Toast;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.socks.library.KLog;
+import com.utils.TextUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import chen.easyview.R;
-import com.utils.TextUtils;
 
 /**
  * Created by Chen on 2017/1/23.
@@ -70,11 +70,12 @@ public class BaseActivity extends AppCompatActivity {
     @TargetApi(19)
     protected void setImmersive() {
         setTranslucentStatus(true);
-        setStatusBarTintResource(R.color.mainblue);
+        setStatusBarTintResource(R.color.translucent);
     }
 
     @TargetApi(19)
     protected void setStatusBarTintResource(int color) {
+        setTranslucentStatus(true);
         //为状态栏着色
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);

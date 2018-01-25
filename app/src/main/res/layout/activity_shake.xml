@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:clipToPadding="false"
-    android:background="#0099de">
+    android:fitsSystemWindows="false">
 
+    <!-- 顶部雷达线由上到下渐变-->
     <chen.easyview.view.ShakeHelpView
         android:id="@+id/shakeHelpView"
         android:layout_width="match_parent"
@@ -17,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- 白色滑块-->
     <chen.easyview.view.ShakeView
         android:id="@+id/shakeView"
         android:layout_width="match_parent"

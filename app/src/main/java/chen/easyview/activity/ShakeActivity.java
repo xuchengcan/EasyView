@@ -22,6 +22,7 @@ public class ShakeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shake);
+        setImmersive();
 
         Resources resources = this.getResources();
         DisplayMetrics dm = resources.getDisplayMetrics();

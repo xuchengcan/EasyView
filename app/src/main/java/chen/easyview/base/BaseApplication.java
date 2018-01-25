@@ -3,6 +3,7 @@ package chen.easyview.base;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -65,6 +66,8 @@ public class BaseApplication extends Application {
         daoSession = new DaoMaster(db).newSession();
 
         registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
+
+        KLog.e(Build.FINGERPRINT);
 
     }
 
