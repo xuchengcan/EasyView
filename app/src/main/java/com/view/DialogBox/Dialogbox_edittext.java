@@ -1,7 +1,7 @@
 package com.view.DialogBox;
 
-import android.app.Dialog;
 import android.content.Context;
+import android.support.v7.app.AppCompatDialog;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
@@ -10,21 +10,25 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import chen.easyview.R;
 import com.utils.TextUtils;
+
+import chen.easyview.R;
 
 
 /**
  * Created by baicheng on 2016/11/12.
  */
 
-public class Dialogbox_edittext extends Dialog {
+public class Dialogbox_edittext extends AppCompatDialog {
 
     private Context context;
     private String hint;
 
     private TextView tv_title, tv_cancel, tv_ok;
     private EditText et;
+
+    // 外部窗口是否可以点击取消，false为禁止，true为允许
+    private boolean isCanceledOnTouchOutside = false;
 
     public interface OnCallback {
         void callback(DialogObject dialogObject);
@@ -157,11 +161,18 @@ public class Dialogbox_edittext extends Dialog {
         return this;
     }
 
+    public Dialogbox_edittext isCanceledOnTouchOutside(boolean can){
+        isCanceledOnTouchOutside = can;
+        return this;
+    }
+
     @Override
     public void show() {
         super.show();
         //弹出软键盘
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        //设置是否 Window 外部可以点击
+        setCanceledOnTouchOutside(isCanceledOnTouchOutside);
 
         if (TextUtils.isValidate(hint))
             et.setHint(hint);

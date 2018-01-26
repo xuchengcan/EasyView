@@ -1,7 +1,7 @@
 package com.view.DialogBox;
 
-import android.app.Dialog;
 import android.content.Context;
+import android.support.v7.app.AppCompatDialog;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,7 +14,7 @@ import chen.easyview.R;
  * Created by baicheng on 2016/11/12.
  */
 
-public class Dialogbox_permission extends Dialog {
+public class Dialogbox_permission extends AppCompatDialog {
 
     private Context context;
 
@@ -23,6 +23,9 @@ public class Dialogbox_permission extends Dialog {
     private PercentLinearLayout pll_choose, pll_set;
 
     private OnCallback onCallback = null;
+
+    // 外部窗口是否可以点击取消，false为禁止，true为允许
+    private boolean isCanceledOnTouchOutside = false;
 
     public interface OnCallback {
         void callback(DialogObject dialogObject);
@@ -135,6 +138,18 @@ public class Dialogbox_permission extends Dialog {
             }
         });
         return this;
+    }
+
+    public Dialogbox_permission isCanceledOnTouchOutside(boolean can){
+        isCanceledOnTouchOutside = can;
+        return this;
+    }
+
+    @Override
+    public void show() {
+        super.show();
+        //设置是否 Window 外部可以点击
+        setCanceledOnTouchOutside(isCanceledOnTouchOutside);
     }
 
 }
