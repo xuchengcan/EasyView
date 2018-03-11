@@ -63,7 +63,7 @@ public class NoteActivity extends BaseActivity {
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BaseConfig.SERVER_IP = serverIp.getText().toString();
+//                BaseConfig.SERVER_IP = serverIp.getText().toString();
                 showToast("修改成功");
             }
         });
