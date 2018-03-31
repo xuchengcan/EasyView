@@ -1,15 +1,16 @@
 package com.view;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDialog;
 import android.widget.TextView;
 
 import com.utils.TextUtils;
 
 import chen.easyview.R;
 
-public class CommonProgressDialog extends AlertDialog {
+
+public class CommonProgressDialog extends AppCompatDialog {
 
     protected String content = "";
 

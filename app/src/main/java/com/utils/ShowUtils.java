@@ -3,6 +3,9 @@ package com.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.Gravity;
 import android.widget.Toast;
 
 import com.socks.library.KLog;
@@ -10,16 +13,15 @@ import com.view.CommonProgressDialog;
 
 import chen.easyview.base.BaseApplication;
 
-
 /**
  * 提示工具类
  */
 
 public class ShowUtils {
 
-    private static Toast toast = null;
     private static CommonProgressDialog progressDialog = null;
-
+    private static Toast mToast = null;
+    private static Handler mHandler = new Handler(Looper.getMainLooper());
 
     public static synchronized void showProgressDialog(Context context) {
         try {
@@ -83,29 +85,47 @@ public class ShowUtils {
         }
     }
 
-    public static void showToast(String showText) {
-        if (showText == null || "null".equals(showText)) {
-            return;
+    /**
+     * Get toast
+     */
+    private static Toast getToast() {
+        if (null != mToast) {
+            return mToast;
         }
-        if (toast == null) {
-            toast = Toast.makeText(BaseApplication.getContext(), showText, Toast.LENGTH_LONG);
-        } else {
-            toast.setText(showText);
-            toast.setDuration(Toast.LENGTH_LONG);
-        }
-        toast.show();
+        return Toast.makeText(BaseApplication.getContext(), "", Toast.LENGTH_SHORT);
     }
 
-
-    //解决循环点击弹出的toast 问题
-    private static void way(Context activity, String str) {
-        if (toast == null) {
-            toast = Toast.makeText(activity, str, Toast.LENGTH_LONG);
-        } else {
-            toast.setText(str);
-            toast.setDuration(Toast.LENGTH_LONG);
-        }
-        toast.show();
+    /**
+     * Show toast
+     *
+     * @param msg
+     * @param duration
+     * @param gravity
+     * @param xOffset
+     * @param yOffset
+     */
+    private static void makeToast(String msg, int duration, int gravity, int xOffset, int yOffset) {
+        mToast = getToast();
+        mToast.setGravity(gravity, xOffset, (yOffset == Integer.MAX_VALUE ? mToast.getYOffset() : yOffset));
+        mToast.setText(msg);
+        mToast.setDuration(duration);
+        mToast.show();
     }
 
+    public static void showToast(final String msg) {
+        try {
+            if (Looper.getMainLooper() == Looper.myLooper()) {
+                makeToast(msg, Toast.LENGTH_SHORT, Gravity.BOTTOM, 0, Integer.MAX_VALUE);
+            } else {
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        makeToast(msg, Toast.LENGTH_SHORT, Gravity.BOTTOM, 0, Integer.MAX_VALUE);
+                    }
+                });
+            }
+        } catch (Exception e) {
+            KLog.e("ShowUtils showToast " + e.getMessage());
+        }
+    }
 }
