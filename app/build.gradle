@@ -6,8 +6,6 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'kotlin-kapt'
-
 android {
     signingConfigs {
         chenkey {
@@ -100,9 +98,7 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:3.1.0'
 
     implementation 'com.google.zxing:core:3.3.2'
+    implementation 'com.google.zxing:android-core:3.3.0'
 
-    implementation 'com.github.vondear:RxTools:v1.7.7.6'
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
-
-
-

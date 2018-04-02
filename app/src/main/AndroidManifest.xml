@@ -26,10 +26,14 @@
     <!-- 悬浮窗权限 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <!-- AIDL 权限-->
+    <!-- 相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- AIDL 权限 -->
     <permission
         android:name="chennuo.easyview.aidl.permissson.ACCESS_BOOK_SERVICE"
         android:protectionLevel="normal" />
+
     <uses-permission android:name="chennuo.easyview.aidl.permissson.ACCESS_BOOK_SERVICE" />
 
     <!-- 关闭硬件加速android:hardwareAccelerated="false" -->
@@ -90,16 +94,18 @@
         <service
             android:name=".service.MessengerService"
             android:process=":remote" />
+
         <activity android:name=".activity.MessengerActivity" />
 
-        <service android:name=".service.BookManagerService"
+        <service
+            android:name=".service.BookManagerService"
             android:process=":remote" />
-        <activity android:name=".activity.BookManagerActivity" />
 
+        <activity android:name=".activity.BookManagerActivity" />
         <activity
             android:name=".activity.PermissionActivity"
-            android:theme="@style/translucent_theme">
-        </activity>
+            android:theme="@style/translucent_theme" />
+
 
     </application>
 
