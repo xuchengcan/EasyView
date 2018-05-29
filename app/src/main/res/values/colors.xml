@@ -13,4 +13,9 @@
     <color name="orange">#FF9900</color>
     <color name="gray_bg_e">#eeeeee</color>
     <color name="gray_word">#9c9c9c</color>
+
+    <color name="main_red">#e63d2e</color>
+    <color name="main_red_dark">#8a281d</color>
+    <color name="main_yellow">#ffbb33</color>
+    <color name="main_blue">#2ea8e5</color>
 </resources>
