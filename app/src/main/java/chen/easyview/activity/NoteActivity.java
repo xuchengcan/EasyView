@@ -11,22 +11,24 @@ import android.widget.TextView;
 
 import com.base.BaseActivity;
 import com.base.BaseConfig;
-import com.net.RetrofitUtils;
 import com.socks.library.KLog;
 
+import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.query.Query;
 
 import java.util.Date;
 import java.util.List;
 
 import chen.easyview.R;
-import chen.easyview.base.BaseApplication;
+import chen.easyview.greendao.DaoMaster;
 import chen.easyview.greendao.DaoSession;
 import chen.easyview.greendao.TodoBean;
 import chen.easyview.greendao.TodoBeanDao;
 
 
 public class NoteActivity extends BaseActivity {
+
+    public static final boolean ENCRYPTED = false;//数据库加密flag
 
     Toolbar mToolbar;
     RecyclerView mList;
@@ -82,30 +84,18 @@ public class NoteActivity extends BaseActivity {
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                OkHttpUtils.post()
-//                        .url(BaseConfig.SERVER_IP + UrlHelper.TODO_URL)
-//                        .addParams("name", "xuchengcan")
-//                        .addParams("json", JsonParser.serializeToJson(list))
-//                        .build()
-//                        .execute(new StringCallback() {
-//                            @Override
-//                            public void onError(Call call, Exception e, int id) {
-//                                KLog.e();
-//                                showToast("请求失败");
-//                            }
-//
-//                            @Override
-//                            public void onResponse(String response, int id) {
-//                                showToast(response);
-//                                text.setText(response);
-//                            }
-//                        });
 
             }
         });
 
 
-        DaoSession daoSession = BaseApplication.getDaoSession();
+        DaoSession daoSession ;
+
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(NoteActivity.this, ENCRYPTED ? "easyview-db-encrypted" : "easyview-db");
+        //数据库密码super-secret
+        Database db = ENCRYPTED ? helper.getEncryptedWritableDb("super-secret") : helper.getWritableDb();
+        daoSession = new DaoMaster(db).newSession();
+
         mTodoBeanDao = daoSession.getTodoBeanDao();
         mTodoBeanQuery = mTodoBeanDao.queryBuilder().orderAsc(TodoBeanDao.Properties.ID).build();
         mShow.setOnClickListener(new View.OnClickListener() {

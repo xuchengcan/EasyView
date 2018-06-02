@@ -52,22 +52,18 @@ greendao {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-
     implementation project(':lib_base')
-
+    if (!isLoginModule.toBoolean()) {
+        implementation project(':model_login')
+    }
     //可选，用于生成application类
     //tinker的核心库
     //百分比布局
     //GreenDao
     // 需要加密数据库时可以使用
     // compile 'net.zetetic:android-database-sqlcipher:3.5.4'
-
-
     implementation 'org.greenrobot:greendao:3.2.0'
-
-//    implementation 'org.tensorflow:tensorflow-android:1.5.0-rc0'
-
+    //    implementation 'org.tensorflow:tensorflow-android:1.5.0-rc0'
     implementation 'com.google.zxing:core:3.3.2'
     implementation 'com.google.zxing:android-core:3.3.0'
-
 }

@@ -38,7 +38,7 @@
 
     <!-- 关闭硬件加速android:hardwareAccelerated="false" -->
     <application
-        android:name=".base.BaseApplication"
+        android:name="com.base.BaseApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"

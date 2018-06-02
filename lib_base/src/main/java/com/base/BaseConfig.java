@@ -1,5 +1,8 @@
 package com.base;
 
+
+import chen.lib_base.BuildConfig;
+
 /**
  * 所有配置相关的基础类
  */
@@ -25,5 +28,7 @@ public interface BaseConfig {
 
     String SERVER_IP = "http://192.168.1.102:8080";
 
-    String BASE_URL = "http://www.klxab.com:8088/";
+
+//    String BASE_URL = "http://www.klxab.com:8088/";
+    String BASE_URL = BuildConfig.DEFAULT_HOSTS_URL;
 }
