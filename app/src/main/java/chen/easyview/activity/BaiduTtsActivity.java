@@ -18,10 +18,10 @@ import com.baidu.tts.client.SpeechError;
 import com.baidu.tts.client.SpeechSynthesizer;
 import com.baidu.tts.client.SpeechSynthesizerListener;
 import com.baidu.tts.client.TtsMode;
+import com.base.BaseActivity;
 import com.socks.library.KLog;
 
 import chen.easyview.R;
-import chen.easyview.base.BaseActivity;
 
 public class BaiduTtsActivity extends BaseActivity implements SpeechSynthesizerListener {
 
@@ -45,10 +45,17 @@ public class BaiduTtsActivity extends BaseActivity implements SpeechSynthesizerL
     private String mSampleDirPath;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_baidu_tts);
+    protected int getContentView() {
+        return R.layout.activity_baidu_tts;
+    }
 
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData(Bundle savedInstanceState) {
         initialEnv();
         initBD();
         mInput = (EditText) findViewById(R.id.editText);

@@ -9,9 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.base.BaseActivity;
+import com.base.BaseConfig;
+import com.net.RetrofitUtils;
 import com.socks.library.KLog;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.greenrobot.greendao.query.Query;
 
@@ -19,15 +20,10 @@ import java.util.Date;
 import java.util.List;
 
 import chen.easyview.R;
-import chen.easyview.base.BaseActivity;
 import chen.easyview.base.BaseApplication;
-import chen.easyview.base.BaseConfig;
-import chen.easyview.base.UrlHelper;
 import chen.easyview.greendao.DaoSession;
 import chen.easyview.greendao.TodoBean;
 import chen.easyview.greendao.TodoBeanDao;
-import chen.easyview.net.JsonParser;
-import okhttp3.Call;
 
 
 public class NoteActivity extends BaseActivity {
@@ -47,9 +43,23 @@ public class NoteActivity extends BaseActivity {
     private Boolean isFromThird = false;//来自第三方跳转
 
     @Override
+    protected int getContentView() {
+        return R.layout.activity_note;
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_note);
 
         mToolbar = findViewById(R.id.toolbar);
         mList = findViewById(R.id.list);
@@ -72,24 +82,25 @@ public class NoteActivity extends BaseActivity {
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                OkHttpUtils.post()
-                        .url(BaseConfig.SERVER_IP + UrlHelper.TODO_URL)
-                        .addParams("name", "xuchengcan")
-                        .addParams("json", JsonParser.serializeToJson(list))
-                        .build()
-                        .execute(new StringCallback() {
-                            @Override
-                            public void onError(Call call, Exception e, int id) {
-                                KLog.e();
-                                showToast("请求失败");
-                            }
+//                OkHttpUtils.post()
+//                        .url(BaseConfig.SERVER_IP + UrlHelper.TODO_URL)
+//                        .addParams("name", "xuchengcan")
+//                        .addParams("json", JsonParser.serializeToJson(list))
+//                        .build()
+//                        .execute(new StringCallback() {
+//                            @Override
+//                            public void onError(Call call, Exception e, int id) {
+//                                KLog.e();
+//                                showToast("请求失败");
+//                            }
+//
+//                            @Override
+//                            public void onResponse(String response, int id) {
+//                                showToast(response);
+//                                text.setText(response);
+//                            }
+//                        });
 
-                            @Override
-                            public void onResponse(String response, int id) {
-                                showToast(response);
-                                text.setText(response);
-                            }
-                        });
             }
         });
 

@@ -10,15 +10,15 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
+import android.support.v7.app.AppCompatActivity;
 
 import com.socks.library.KLog;
 
 import chen.easyview.R;
-import chen.easyview.base.BaseActivity;
 import chen.easyview.base.MyConstants;
 import chen.easyview.service.MessengerService;
 
-public class MessengerActivity extends BaseActivity {
+public class MessengerActivity extends AppCompatActivity {
 
     private Messenger mService;
 

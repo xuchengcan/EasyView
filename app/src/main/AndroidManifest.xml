@@ -62,7 +62,6 @@
         </activity>
         <activity android:name=".activity.ShowActivity" />
         <activity android:name=".activity.CanvasActivity" />
-        <activity android:name=".activity.TestViewActivity" />
         <activity android:name=".activity.TinkerActivity" />
         <activity android:name=".activity.BubbleActivity" />
         <activity android:name=".activity.NoteActivity">

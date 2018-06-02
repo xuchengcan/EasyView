@@ -2,12 +2,14 @@ package chen.easyview.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupWindow;
 
+import com.base.BaseActivity;
 import com.daasuu.bl.ArrowDirection;
 import com.daasuu.bl.BubbleLayout;
 import com.daasuu.bl.BubblePopupHelper;
@@ -15,7 +17,6 @@ import com.daasuu.bl.BubblePopupHelper;
 import java.util.Random;
 
 import chen.easyview.R;
-import chen.easyview.base.BaseActivity;
 
 public class BubbleActivity extends BaseActivity {
 
@@ -24,9 +25,23 @@ public class BubbleActivity extends BaseActivity {
     private PopupWindow popupWindow;
 
     @Override
+    protected int getContentView() {
+        return R.layout.activity_bubble;
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bubble);
 
         final BubbleLayout bubbleLayout = (BubbleLayout) LayoutInflater.from(this).inflate(R.layout.layout_sample_popup, null);
         popupWindow = BubblePopupHelper.create(this, bubbleLayout);

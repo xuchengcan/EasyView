@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.socks.library.KLog;
+import com.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,6 @@ import chen.easyview.activity.NoteActivity;
 import chen.easyview.activity.ScrollingActivity;
 import chen.easyview.activity.ShakeActivity;
 import chen.easyview.activity.ShowActivity;
-import chen.easyview.activity.TestViewActivity;
 import chen.easyview.bean.ActivityBean;
 
 public class MainActivity extends BaseActivity {
@@ -34,11 +33,20 @@ public class MainActivity extends BaseActivity {
     private ListView main_list;
     private List<ActivityBean> mActivities;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        KLog.i();
+    protected int getContentView() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData(Bundle savedInstanceState) {
+
         initList();
         main_list = (ListView)findViewById(R.id.main_list);
 
@@ -57,7 +65,6 @@ public class MainActivity extends BaseActivity {
         mActivities = new ArrayList<>();
         mActivities.add(new ActivityBean(ShowActivity.class));
         mActivities.add(new ActivityBean(CanvasActivity.class));
-        mActivities.add(new ActivityBean(TestViewActivity.class));
         mActivities.add(new ActivityBean(BubbleActivity.class));
         mActivities.add(new ActivityBean(NoteActivity.class));
         mActivities.add(new ActivityBean(BaiduTtsActivity.class));

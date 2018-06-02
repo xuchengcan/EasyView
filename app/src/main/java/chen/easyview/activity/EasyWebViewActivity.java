@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
@@ -16,18 +15,15 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ImageView;
-import android.widget.TextView;
 
+import com.base.BaseActivity;
 import com.socks.library.KLog;
-import com.utils.KeyBoardUtils;
 import com.utils.NetUtils;
 import com.utils.TextUtils;
 import com.view.WebViewForRefresh;
 import com.view.percentlayout.PercentLinearLayout;
 
 import chen.easyview.R;
-import chen.easyview.base.BaseActivity;
 
 /**
  * Created by chen on 2016/10/29.
@@ -46,11 +42,8 @@ public class EasyWebViewActivity extends BaseActivity {
     private Handler mHandler;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_easy_webview);
-        initView();
-        initData(savedInstanceState);
+    protected int getContentView() {
+        return R.layout.activity_easy_webview;
     }
 
     protected void initView() {

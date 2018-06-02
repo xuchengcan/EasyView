@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="main_red">#FF3752</color>
+    <color name="main_red_dark">#8a281d</color>
+    <color name="main_yellow">#ffbb33</color>
+    <color name="main_blue">#2ea8e5</color>
+    <color name="translucent">#00000000</color>
+
+
+    <color name="color_white">#ffffff</color>
+    <color name="color_black">#000000</color>
+
+
+
+
+    <color name="login_button_enable">#74C742</color>
+
+    <color name="c_F6F6F6">#F6F6F6</color>
+    <color name="c_F1F1F1">#F1F1F1</color>
+    <color name="c_D3D7DC">#D3D7DC</color>
+    <color name="c_333333">#333333</color>
+    <color name="c_666666">#666666</color>
+    <color name="c_999999">#999999</color>
+    <color name="c_FF3752">#FF3752</color>
+    <color name="c_8290AF">#8290AF</color>
+    <color name="c_EEEEEE">#EEEEEE</color>
+    <color name="c_EDEDED">#EDEDED</color>
+    <color name="c_CCCCCC">#CCCCCC</color>
+    <color name="c_DDDDDD">#DDDDDD</color>
+    <color name="c_FF0628">#FF0628</color>
+    <color name="c_9500FF">#9500FF</color>
+    <color name="c_808080">#808080</color>
+    <color name="c_00ABF8">#00ABF8</color>
+    <color name="c_18ACFC">#18ACFC</color>
+    <color name="c_69C54F">#69C54F</color>
+    <color name="c_74C742">#74C742</color>
+    <color name="c_FF912F">#FF912F</color>
+    <color name="c_989898">#989898</color>
+    <color name="c_FF9200">#FF9200</color>
+    <color name="c_FEFEFE">#FEFEFE</color>
+    <color name="c_151515">#151515</color>
+    <color name="c_E0E0E0">#E0E0E0</color>
+    <color name="c_F2F2F2">#F2F2F2</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+
+    <color name="c_half_transparent_FF0628">#7FFF0628</color>
+    <color name="half_transparent_black">#7f000000</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="black_transparent">#00000000</color>
+    <color name="white_transparent">#00FFFFFF</color>
+    <color name="half_black">#7f000000</color>
+
+    <color name="gray">#FF6A6A6A</color>
+</resources>

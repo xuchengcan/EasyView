@@ -2,24 +2,34 @@ package chen.easyview.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import com.PermissionHelp.PermissionsPageManager;
+import com.net.JsonResultBean;
+import com.net.ParamUtils;
+import com.net.RetrofitUtils;
 import com.socks.library.KLog;
 import com.utils.DoubleClickUtils;
+import com.utils.ShowUtils;
 import com.view.DialogBox.Dialogbox_edittext;
 import com.view.DialogBox.Dialogbox_permission;
 import com.view.DialogBox.Dialogbox_tips;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
 
+import chen.easyview.BuildConfig;
 import chen.easyview.R;
-import chen.easyview.base.BaseActivity;
-import okhttp3.Call;
+import chen.easyview.api.ApiServer;
+import chen.easyview.bean.UpdateBean;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+
+import static com.utils.ShowUtils.showToast;
 
 
-public class ShowActivity extends BaseActivity implements View.OnClickListener {
+public class ShowActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button mShowButton1;
     Button mShowButton2;
@@ -70,21 +80,41 @@ public class ShowActivity extends BaseActivity implements View.OnClickListener {
                     KLog.e("----1s---");
                     return;
                 }
-                OkHttpUtils.post()
-                        .url("http://183.232.33.171/BusService.asmx/GetVersion")
-                        .addHeader("User-Agent", "Html5Plus/1.0")
-                        .build()
-                        .execute(new StringCallback() {
-                            @Override
-                            public void onError(Call call, Exception e, int id) {
+                RetrofitUtils.getInstance().getService(ApiServer.class).getApkIsLastNew(ParamUtils.build().put("app_version", BuildConfig.VERSION_NAME).signParameter())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Observer<JsonResultBean<UpdateBean>>() {
+                        @Override
+                        public void onSubscribe(Disposable d) {
+                            KLog.e();
+                        }
 
+                        @Override
+                        public void onNext(JsonResultBean<UpdateBean> resultBean) {
+                            KLog.e();
+                            if (RetrofitUtils.isSuccessStatusCode(resultBean)) {
+                                if (RetrofitUtils.isSuccessData(resultBean)) {
+                                    final UpdateBean bean = resultBean.data;
+                                    showToast("数据加载成功");
+                                } else {
+                                    ShowUtils.showToast("数据加载失败");
+                                }
+                            } else {
+                                RetrofitUtils.showErrorToast();
                             }
+                        }
 
-                            @Override
-                            public void onResponse(String response, int id) {
-                                showToast(response);
-                            }
-                        });
+                        @Override
+                        public void onError(Throwable e) {
+                            RetrofitUtils.reportError(e);
+                        }
+
+                        @Override
+                        public void onComplete() {
+                            KLog.e();
+                        }
+                    });
+
                 break;
             case R.id.showButton4:
                 try {

@@ -31,13 +31,14 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.base.BaseConfig;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import chen.easyview.R;
-import chen.easyview.base.BaseConfig;
 
 
 /**
@@ -68,8 +69,8 @@ public class PercentLayoutHelper {
             //华为 720 x 1208
             //vivo 540 x 960
             //oppo 540 x 960
-            mWidthScreen = BaseConfig.testWidthScreen;
-            mHeightScreen = BaseConfig.testHeightScreen;
+            mWidthScreen = 720;
+            mHeightScreen = 1280;
             if (Build.BRAND.equalsIgnoreCase("vivo") || Build.BRAND.equalsIgnoreCase("OPPO")) {
                 mWidthScreen = 540;
                 mHeightScreen = 960;

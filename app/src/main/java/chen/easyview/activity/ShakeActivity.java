@@ -7,8 +7,9 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.animation.LinearInterpolator;
 
+import com.base.BaseActivity;
+
 import chen.easyview.R;
-import chen.easyview.base.BaseActivity;
 import chen.easyview.view.ShakeView;
 
 public class ShakeActivity extends BaseActivity {
@@ -19,9 +20,23 @@ public class ShakeActivity extends BaseActivity {
     ObjectAnimator animator;
 
     @Override
+    protected int getContentView() {
+        return R.layout.activity_shake;
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shake);
         setImmersive();
 
         Resources resources = this.getResources();
