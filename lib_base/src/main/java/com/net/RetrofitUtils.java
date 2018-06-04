@@ -58,7 +58,7 @@ public class RetrofitUtils {
     public void init(Application application){
         retrofit = new Retrofit.Builder()
 //                .baseUrl(BaseConfig.isDebug?BaseConfig.BASE_DEBUG_URL:BaseConfig.BASE_URL)
-                .baseUrl(BaseConfig.BASE_URL)
+                .baseUrl(BuildConfig.DEFAULT_HOSTS_URL)
                 .client(getClient(application))
                 .addConverterFactory(GsonConverterFactory.create())//设置 Json 转换器
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//RxJava 适配器

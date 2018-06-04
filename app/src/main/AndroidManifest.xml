@@ -53,7 +53,7 @@
             android:name="TINKER_ID"
             android:value="2.0" />
 
-        <activity android:name=".base.MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

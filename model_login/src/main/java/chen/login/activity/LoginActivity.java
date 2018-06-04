@@ -42,7 +42,7 @@ public class LoginActivity extends BaseActivity {
                     .compose(RxUtil.compose(this))
                     .subscribe(bean -> {
                         ARouter.getInstance().build(ARouterUrl.Main_MainActivity).navigation();
-                        finish();
+                        showToast("登陆成功");
                     }, e -> {
                         KLog.e(e);
                         e.printStackTrace();

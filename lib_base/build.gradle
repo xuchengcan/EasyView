@@ -7,7 +7,11 @@ android {
         targetSdkVersion TARGET_SDK_VERSION
         versionCode VERSION_CODE
         versionName VERSION_NAME
-        buildConfigField "String", "DEFAULT_HOSTS_URL", project.default_hosts_url
+        if (isLoginModule.toBoolean()){
+            buildConfigField "String", "DEFAULT_HOSTS_URL", project.model_login_url
+        }else {
+            buildConfigField "String", "DEFAULT_HOSTS_URL", project.default_hosts_url
+        }
 //        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {

@@ -5,18 +5,14 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.base.BaseConfig;
 import com.net.RetrofitUtils;
 import com.socks.library.KLog;
-import com.squareup.leakcanary.LeakCanary;
 import com.utils.ApplicationUtils;
 import com.utils.DisplayUtils;
 import com.utils.SharedPreferencesUtils;
-import com.utils.TextUtils;
 
 
 /**

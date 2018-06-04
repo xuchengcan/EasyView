@@ -1,4 +1,4 @@
-package chen.easyview.base;
+package chen.easyview.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,24 +10,16 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.base.ARouterUrl;
 import com.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import chen.easyview.R;
-import chen.easyview.activity.BaiduTtsActivity;
-import chen.easyview.activity.BookManagerActivity;
-import chen.easyview.activity.BubbleActivity;
-import chen.easyview.activity.CanvasActivity;
-import chen.easyview.activity.EasyWebViewActivity;
-import chen.easyview.activity.MessengerActivity;
-import chen.easyview.activity.NoteActivity;
-import chen.easyview.activity.ScrollingActivity;
-import chen.easyview.activity.ShakeActivity;
-import chen.easyview.activity.ShowActivity;
 import chen.easyview.bean.ActivityBean;
-
+@Route(path = ARouterUrl.Main_MainActivity)
 public class MainActivity extends BaseActivity {
 
     private ListView main_list;
