@@ -76,7 +76,7 @@ dependencies {
     api "org.greenrobot:eventbus:${LIB_EVENTBUS_VERSION}"
 
     //日志打印工具
-    api 'com.github.zhaokaiqiang.klog:library:1.6.0'
+    api Deps.klog
 
     // ViewModel and LiveData
 
