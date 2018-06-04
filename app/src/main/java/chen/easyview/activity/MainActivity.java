@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.base.ARouterUrl;
 import com.base.BaseActivity;
 
@@ -19,6 +20,8 @@ import java.util.List;
 
 import chen.easyview.R;
 import chen.easyview.bean.ActivityBean;
+import chen.login.activity.LoginActivity;
+
 @Route(path = ARouterUrl.Main_MainActivity)
 public class MainActivity extends BaseActivity {
 
@@ -47,8 +50,12 @@ public class MainActivity extends BaseActivity {
         main_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent mIntent = new Intent(MainActivity.this,mActivities.get(position).mAClass);
-                startActivity(mIntent);
+                if (mActivities.get(position).isModel){
+                    ARouter.getInstance().build(mActivities.get(position).model_url).navigation();
+                }else {
+                    Intent mIntent = new Intent(MainActivity.this,mActivities.get(position).mAClass);
+                    startActivity(mIntent);
+                }
             }
         });
     }
@@ -65,6 +72,7 @@ public class MainActivity extends BaseActivity {
         mActivities.add(new ActivityBean(ScrollingActivity.class));
         mActivities.add(new ActivityBean(MessengerActivity.class));
         mActivities.add(new ActivityBean(BookManagerActivity.class));
+        mActivities.add(new ActivityBean(ARouterUrl.ModelLogin_LoginActivity));
     }
 
 

@@ -1,7 +1,9 @@
 package com.net;
 
 import android.app.Application;
+import android.app.usage.NetworkStatsManager;
 import android.content.Context;
+import android.util.Log;
 
 import com.base.BaseConfig;
 import com.socks.library.KLog;
@@ -12,6 +14,8 @@ import com.utils.TextUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import chen.lib_base.BuildConfig;
 import okhttp3.Cache;
@@ -91,9 +95,9 @@ public class RetrofitUtils {
                                 .cacheControl(CacheControl.FORCE_CACHE)
                                 .build();
                         KLog.e("应用拦截器   ：：  request no network");
-                        if (BaseConfig.isDebug) {
-                            logForAppNotNetWorkRequest(request);
-                        }
+//                        if (BaseConfig.isDebug) {
+//                            logForAppNotNetWorkRequest(request);
+//                        }
                     }
                     Response response = chain.proceed(request);
                     if (NetUtils.getNetType(application.getApplicationContext()) != 0) {
@@ -105,7 +109,7 @@ public class RetrofitUtils {
                                 .build();
                     } else {
                         int maxTime = 60;
-                        KLog.e("应用拦截器   ：：  response no network ");
+                        KLog.e("应用拦截器   ：：  request no network ");
                         return response.newBuilder()
                                 //这里的设置的是我们的没有网络的缓存时间，想设置多少就是多少。
                                 .addHeader("Cache-Control", "public, only-if-cached, max-stale=" + maxTime)
@@ -126,20 +130,17 @@ public class RetrofitUtils {
                                 // 给大家写连接吧。大家可以去看下，获取大家去找拦截器资料的时候就可以看到这个方面的东西反正也就是缓存策略。
                                 .cacheControl(CacheControl.FORCE_CACHE)
                                 .build();
-                        KLog.e("网络拦截器   ：：  request no network");
+                        KLog.e("网络拦截器   ：：  response no network");
                     }
-                    if (BaseConfig.isDebug) {
-                        KLog.i("url     : " + request.url().toString());
-                    }
-                    if (BaseConfig.isDebugForNetRequest) {
-                        logForNetRequest(request);
-                    }
+//                    if (BaseConfig.isDebugForNetRequest) {
+//                        logForNetRequest(request);
+//                    }
                     Response response = chain.proceed(request);
 
                     if (NetUtils.getNetType(application.getApplicationContext()) != 0) {
-                        if (BaseConfig.isDebugForNetResponse) {
-//                            return logForNetResponse(response);
-                        }
+//                        if (BaseConfig.isDebugForNetResponse) {
+////                            return logForNetResponse(response);
+//                        }
                         return response.newBuilder()
                                 //这里设置的为0就是说不进行缓存，我们也可以设置缓存时间
                                 .addHeader("Cache-Control", "public, max-age=" + 0)
@@ -157,12 +158,7 @@ public class RetrofitUtils {
                 }
             };
 
-            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-                @Override
-                public void log(String message) {
-                    KLog.e(message);
-                }
-            });
+            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
             client = new OkHttpClient.Builder()
