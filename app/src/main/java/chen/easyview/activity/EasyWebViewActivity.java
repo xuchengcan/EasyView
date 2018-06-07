@@ -46,7 +46,14 @@ public class EasyWebViewActivity extends BaseActivity {
         return R.layout.activity_easy_webview;
     }
 
-    protected void initView() {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initView();
+        initData();
+    }
+
+    private void initView() {
         srf = findViewById(R.id.srf);
         mToolbar = findViewById(R.id.toolbar);
 
@@ -70,7 +77,7 @@ public class EasyWebViewActivity extends BaseActivity {
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    protected void initData(Bundle savedInstanceState) {
+    private void initData() {
         mUrl = getIntent().getStringExtra(URL);
         mTitle = getIntent().getStringExtra("TITLE");
         mAction = getIntent().getIntExtra("ACTION", -1);

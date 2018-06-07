@@ -50,16 +50,6 @@ public class NoteActivity extends BaseActivity {
     }
 
     @Override
-    protected void initView() {
-
-    }
-
-    @Override
-    protected void initData(Bundle savedInstanceState) {
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

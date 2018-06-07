@@ -77,6 +77,7 @@ dependencies {
 
     //日志打印工具
     api Deps.klog
+//    api "com.github.zhaokaiqiang.klog:library:1.6.0"
 
     // ViewModel and LiveData
 
@@ -89,5 +90,4 @@ dependencies {
     annotationProcessor "com.alibaba:arouter-compiler:${LIB_AROUTER_COMPILER}"
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
-    implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 }

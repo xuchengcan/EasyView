@@ -28,14 +28,20 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
-    protected void initView() {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initView();
+        initData();
+
+    }
+
+    private void initView() {
         et_phone = findViewById(R.id.et_phone);
         et_password = findViewById(R.id.et_password);
         btn_login = findViewById(R.id.btn_login);
     }
 
-    @Override
-    protected void initData(Bundle savedInstanceState) {
+    private void initData() {
         btn_login.setOnClickListener(v -> {
             RetrofitUtils.getInstance().getService(LoginService.class).getLogin(et_phone.getText().toString(), et_password.getText().toString())
                     .map(ResponseHandler::handleResponse)

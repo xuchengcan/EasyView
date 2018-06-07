@@ -1,6 +1,5 @@
 package com.base;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -10,21 +9,14 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
 
-import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.socks.library.KLog;
 import com.utils.ShowUtils;
 import com.utils.StatusBarBlackUtils;
 import com.utils.StatusBarUtils;
-import com.utils.TextUtils;
 
 import org.greenrobot.eventbus.EventBus;
-
-import chen.lib_base.R;
 
 
 /**
@@ -42,28 +34,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     @LayoutRes
     protected abstract int getContentView();
 
-    /**
-     * 初始化控件
-     */
-    protected abstract void initView();
-
-    /**
-     * 初始化数据
-     */
-    protected abstract void initData(Bundle savedInstanceState);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentView());
-        initView();
-        initData(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//屏幕竖屏
         if (isImmersive) {
             StatusBarUtils.setColor(this, StatusBarUtils.StatusBarColor);
             StatusBarBlackUtils.setStatusBarBlackColor(this, true);
         }
-
         if (isBindEventBusHere) {
             EventBus.getDefault().register(this); //注册事件
         }
@@ -114,37 +93,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         } else {
             ShowUtils.dismissProgressDialog();
         }
-    }
-
-    /**
-     * 框架使用的沉浸式,这个比较好,能在布局里面少些代码
-     */
-    @TargetApi(19)
-    protected void setImmersive() {
-        setTranslucentStatus(true);
-        setStatusBarTintResource(R.color.translucent);
-    }
-
-    @TargetApi(19)
-    protected void setStatusBarTintResource(int color) {
-        setTranslucentStatus(true);
-        //为状态栏着色
-        SystemBarTintManager tintManager = new SystemBarTintManager(this);
-        tintManager.setStatusBarTintEnabled(true);
-        tintManager.setStatusBarTintResource(color);
-    }
-
-    @TargetApi(19)
-    protected void setTranslucentStatus(boolean on) {
-        Window win = getWindow();
-        WindowManager.LayoutParams winParams = win.getAttributes();
-        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-        if (on) {
-            winParams.flags |= bits;
-        } else {
-            winParams.flags &= ~bits;
-        }
-        win.setAttributes(winParams);
     }
 
     /**

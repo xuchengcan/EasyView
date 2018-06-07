@@ -8,6 +8,7 @@ import android.util.DisplayMetrics;
 import android.view.animation.LinearInterpolator;
 
 import com.base.BaseActivity;
+import com.utils.StatusBarUtils;
 
 import chen.easyview.R;
 import chen.easyview.view.ShakeView;
@@ -25,19 +26,10 @@ public class ShakeActivity extends BaseActivity {
     }
 
     @Override
-    protected void initView() {
-
-    }
-
-    @Override
-    protected void initData(Bundle savedInstanceState) {
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
+        isImmersive = false;
         super.onCreate(savedInstanceState);
-        setImmersive();
+        StatusBarUtils.setTranslucentStatus(this, true);
 
         Resources resources = this.getResources();
         DisplayMetrics dm = resources.getDisplayMetrics();

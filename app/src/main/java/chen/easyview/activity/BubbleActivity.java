@@ -2,7 +2,6 @@ package chen.easyview.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,16 +26,6 @@ public class BubbleActivity extends BaseActivity {
     @Override
     protected int getContentView() {
         return R.layout.activity_bubble;
-    }
-
-    @Override
-    protected void initView() {
-
-    }
-
-    @Override
-    protected void initData(Bundle savedInstanceState) {
-
     }
 
     @Override

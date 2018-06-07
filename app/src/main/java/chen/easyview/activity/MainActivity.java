@@ -20,7 +20,6 @@ import java.util.List;
 
 import chen.easyview.R;
 import chen.easyview.bean.ActivityBean;
-import chen.login.activity.LoginActivity;
 
 @Route(path = ARouterUrl.Main_MainActivity)
 public class MainActivity extends BaseActivity {
@@ -35,13 +34,8 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected void initView() {
-
-    }
-
-    @Override
-    protected void initData(Bundle savedInstanceState) {
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         initList();
         main_list = (ListView)findViewById(R.id.main_list);
 

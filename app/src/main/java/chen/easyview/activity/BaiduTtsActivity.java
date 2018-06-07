@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -18,12 +20,11 @@ import com.baidu.tts.client.SpeechError;
 import com.baidu.tts.client.SpeechSynthesizer;
 import com.baidu.tts.client.SpeechSynthesizerListener;
 import com.baidu.tts.client.TtsMode;
-import com.base.BaseActivity;
 import com.socks.library.KLog;
 
 import chen.easyview.R;
 
-public class BaiduTtsActivity extends BaseActivity implements SpeechSynthesizerListener {
+public class BaiduTtsActivity extends AppCompatActivity implements SpeechSynthesizerListener {
 
 //    private static final String SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female.dat";
 //    private static final String SPEECH_MALE_MODEL_NAME = "bd_etts_speech_male.dat";
@@ -45,17 +46,9 @@ public class BaiduTtsActivity extends BaseActivity implements SpeechSynthesizerL
     private String mSampleDirPath;
 
     @Override
-    protected int getContentView() {
-        return R.layout.activity_baidu_tts;
-    }
-
-    @Override
-    protected void initView() {
-
-    }
-
-    @Override
-    protected void initData(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_baidu_tts);
         initialEnv();
         initBD();
         mInput = (EditText) findViewById(R.id.editText);
@@ -67,6 +60,7 @@ public class BaiduTtsActivity extends BaseActivity implements SpeechSynthesizerL
             }
         });
     }
+
 
     //离线资源，在本项目不使用，有需要去yuyin.baidu.com下载
     private void initialEnv() {
