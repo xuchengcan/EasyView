@@ -1,5 +1,6 @@
 package chen.easyview.activity;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -45,7 +46,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (mActivities.get(position).isModel){
-                    ARouter.getInstance().build(mActivities.get(position).model_url).navigation();
+                    if (mActivities.get(position).isFlutter) {
+                        ComponentName componentName = new ComponentName(MainActivity.this, mActivities.get(position).model_url);
+                        Intent intent = new Intent().setComponent(componentName);
+                        startActivity(intent);
+                    } else {
+                        ARouter.getInstance().build(mActivities.get(position).model_url).navigation();
+                    }
                 }else {
                     Intent mIntent = new Intent(MainActivity.this,mActivities.get(position).mAClass);
                     startActivity(mIntent);
@@ -67,6 +74,7 @@ public class MainActivity extends BaseActivity {
         mActivities.add(new ActivityBean(MessengerActivity.class));
         mActivities.add(new ActivityBean(BookManagerActivity.class));
         mActivities.add(new ActivityBean(ARouterUrl.ModelLogin_LoginActivity));
+        mActivities.add(new ActivityBean("chen.flutter.MainActivity", true));
     }
 
 

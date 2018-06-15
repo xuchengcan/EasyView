@@ -7,6 +7,7 @@ package chen.easyview.bean;
 public class ActivityBean {
 
     public boolean isModel;
+    public boolean isFlutter;
     public String model_url;
     public Class mAClass;
     public String name;
@@ -18,6 +19,14 @@ public class ActivityBean {
     }
 
     public ActivityBean(String model_url) {
+        this.isFlutter = false;
+        this.isModel = true;
+        this.model_url = model_url;
+        this.name = model_url;
+    }
+
+    public ActivityBean(String model_url, boolean isFlutter) {
+        this.isFlutter = isFlutter;
         this.isModel = true;
         this.model_url = model_url;
         this.name = model_url;
