@@ -1,2 +1,5 @@
-include ':app', ':lib_base', ":model_login", ':model_flutter'
-project(':model_flutter').projectDir = new File(settingsDir, '../model_flutter/android/app')
+include ':app', ':lib_base', ":model_login"
+if (includeFlutterModule.toBoolean()) {
+    include ":model_flutter"
+    project(':model_flutter').projectDir = new File(settingsDir, '../model_flutter/android/app')
+}

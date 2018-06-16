@@ -11,7 +11,7 @@ android {
         chenkey {
             keyAlias 'chennuo'
             keyPassword 'chennuo'
-//            storeFile file('C:/Android/signkey/chen.key.jks')
+            storeFile file('C:/Android/signkey/chen.key.jks')
             storePassword 'chennuo'
         }
     }
@@ -63,7 +63,9 @@ dependencies {
     if (!isLoginModule.toBoolean()) {
         implementation project(':model_login')
     }
-    implementation project(':model_flutter')
+    if (includeFlutterModule.toBoolean()){
+        implementation project(':model_flutter')
+    }
     //可选，用于生成application类
     //tinker的核心库
     //百分比布局
