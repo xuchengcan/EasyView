@@ -2,10 +2,6 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'org.greenrobot.greendao'
 
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
-
 android {
     signingConfigs {
         chenkey {
@@ -58,14 +54,13 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':lib_base')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-
     if (!isLoginModule.toBoolean()) {
         implementation project(':model_login')
     }
     if (includeFlutterModule.toBoolean()){
         implementation project(':model_flutter')
     }
+    implementation project(':model_kotlin')
     //可选，用于生成application类
     //tinker的核心库
     //百分比布局

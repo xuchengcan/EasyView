@@ -49,6 +49,11 @@ dependencies {
     api "com.android.support.constraint:constraint-layout:${constraint_layout}"
     api "com.google.android:flexbox:${flexbox}"
 
+    api "android.arch.lifecycle:extensions:${lifecycle_version}"
+    annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
+    // alternately - if using Java8, use the following instead of compiler
+    api "android.arch.lifecycle:common-java8:$lifecycle_version"
+
     //网络请求
     api "com.google.code.gson:gson:${LIB_GSON_VERSION}"
     api "io.reactivex.rxjava2:rxjava:${LIB_RXJAVA_VERSION}"
