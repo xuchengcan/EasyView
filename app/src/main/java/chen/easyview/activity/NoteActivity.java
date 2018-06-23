@@ -8,22 +8,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import com.base.BaseActivity;
-import com.base.BaseConfig;
-import com.socks.library.KLog;
-
-import org.greenrobot.greendao.database.Database;
-import org.greenrobot.greendao.query.Query;
-
-import java.util.Date;
-import java.util.List;
-
 import chen.easyview.R;
 import chen.easyview.greendao.DaoMaster;
 import chen.easyview.greendao.DaoSession;
 import chen.easyview.greendao.TodoBean;
 import chen.easyview.greendao.TodoBeanDao;
+import com.base.BaseActivity;
+import com.base.BaseConfig;
+import com.socks.library.KLog;
+import org.greenrobot.greendao.database.Database;
+import org.greenrobot.greendao.query.Query;
+
+import java.util.Date;
+import java.util.List;
 
 
 public class NoteActivity extends BaseActivity {

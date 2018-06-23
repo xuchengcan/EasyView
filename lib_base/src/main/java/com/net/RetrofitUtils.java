@@ -1,39 +1,22 @@
 package com.net;
 
 import android.app.Application;
-import android.app.usage.NetworkStatsManager;
-import android.content.Context;
-import android.util.Log;
-
+import chen.lib_base.BuildConfig;
 import com.base.BaseConfig;
 import com.socks.library.KLog;
 import com.utils.NetUtils;
 import com.utils.ShowUtils;
 import com.utils.TextUtils;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import chen.lib_base.BuildConfig;
-import okhttp3.Cache;
-import okhttp3.CacheControl;
-import okhttp3.FormBody;
-import okhttp3.Headers;
-import okhttp3.Interceptor;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okio.Buffer;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class RetrofitUtils {
 

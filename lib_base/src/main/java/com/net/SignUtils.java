@@ -2,7 +2,6 @@ package com.net;
 
 import com.base.BaseApplication;
 import com.base.BaseConfig;
-import com.socks.library.KLog;
 import com.utils.NetUtils;
 import com.utils.SharedPreferencesUtils;
 

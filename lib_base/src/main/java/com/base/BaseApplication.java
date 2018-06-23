@@ -6,7 +6,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.multidex.MultiDex;
-
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.net.RetrofitUtils;
 import com.socks.library.KLog;
@@ -71,7 +70,7 @@ public class BaseApplication extends Application {
     private ActivityLifecycleCallbacks activityLifecycleCallbacks = new ActivityLifecycleCallbacks() {
         @Override
         public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-            KLog.i(activity.getClass().getSimpleName());
+
         }
 
         @Override
@@ -81,7 +80,7 @@ public class BaseApplication extends Application {
 
         @Override
         public void onActivityResumed(Activity activity) {
-
+            KLog.i(activity.getClass().getSimpleName());
         }
 
         @Override

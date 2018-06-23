@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
+import chen.easyview.BuildConfig;
+import chen.easyview.R;
+import chen.easyview.api.ApiServer;
+import chen.easyview.bean.UpdateBean;
 import com.PermissionHelp.PermissionsPageManager;
 import com.net.JsonResultBean;
 import com.net.ParamUtils;
@@ -16,11 +19,6 @@ import com.utils.ShowUtils;
 import com.view.DialogBox.Dialogbox_edittext;
 import com.view.DialogBox.Dialogbox_permission;
 import com.view.DialogBox.Dialogbox_tips;
-
-import chen.easyview.BuildConfig;
-import chen.easyview.R;
-import chen.easyview.api.ApiServer;
-import chen.easyview.bean.UpdateBean;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;

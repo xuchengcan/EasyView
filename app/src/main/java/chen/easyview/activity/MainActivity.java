@@ -10,7 +10,9 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
+import chen.easyview.R;
+import chen.easyview.bean.ActivityBean;
+import chen.kotlin.KotlinActivity;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.base.ARouterUrl;
@@ -18,9 +20,6 @@ import com.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import chen.easyview.R;
-import chen.easyview.bean.ActivityBean;
 
 @Route(path = ARouterUrl.Main_MainActivity)
 public class MainActivity extends BaseActivity {
@@ -75,7 +74,7 @@ public class MainActivity extends BaseActivity {
         mActivities.add(new ActivityBean(BookManagerActivity.class));
         mActivities.add(new ActivityBean(ARouterUrl.ModelLogin_LoginActivity));
         mActivities.add(new ActivityBean("chen.flutter.MainActivity", true));
-        mActivities.add(new ActivityBean(ARouterUrl.ModelKotlin_DemoActivity));
+        mActivities.add(new ActivityBean(KotlinActivity.class));
     }
 
 

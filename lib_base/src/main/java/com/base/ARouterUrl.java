@@ -6,5 +6,4 @@ package com.base;
 public interface ARouterUrl {
     String ModelLogin_LoginActivity = "/ModelLogin/LoginActivity";
     String Main_MainActivity = "/Main/MainActivity";
-    String ModelKotlin_DemoActivity = "/ModelKotlin/DemoActivity";
 }
