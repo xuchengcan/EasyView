@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/buildSrc/buildSrc.iml" filepath="$PROJECT_DIR$/buildSrc/buildSrc.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_base/lib_base.iml" filepath="$PROJECT_DIR$/lib_base/lib_base.iml" />
       <module fileurl="file://$PROJECT_DIR$/../model_flutter/android/app/model_flutter.iml" filepath="$PROJECT_DIR$/../model_flutter/android/app/model_flutter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/model_kotlin/model_kotlin.iml" filepath="$PROJECT_DIR$/model_kotlin/model_kotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/model_login/model_login.iml" filepath="$PROJECT_DIR$/model_login/model_login.iml" />
     </modules>
   </component>
