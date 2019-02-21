@@ -3,15 +3,13 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'org.greenrobot.greendao'
-
 android {
     signingConfigs {
         chenkey {
-            keyAlias 'chennuo'
-            keyPassword 'chennuo'
-            storeFile file('C:/Android/signkey/chen.key.jks')
-            storePassword 'chennuo'
+//            keyAlias 'chennuo'
+//            keyPassword 'chennuo'
+//            storeFile file('C:/Android/signkey/chen.key.jks')
+//            storePassword 'chennuo'
         }
     }
     compileSdkVersion COMPILE_SDK_VERSION
@@ -45,12 +43,6 @@ android {
         sourceCompatibility JAVA_VERSION
         targetCompatibility JAVA_VERSION
     }
-}
-
-greendao {
-    schemaVersion 1 //数据库版本控制，如需进行数据库版本升级，需重写DatabaseOpenHelper
-    daoPackage 'chen.easyview.greendao'//设置DaoMaster、DaoSession、Dao包名
-    targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
 }
 
 dependencies {

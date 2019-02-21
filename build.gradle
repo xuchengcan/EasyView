@@ -7,7 +7,7 @@ ext {
     TARGET_SDK_VERSION = 28
     JAVA_VERSION = JavaVersion.VERSION_1_8
 
-    SUPPORT_VERSION = "28.0.0-alpha3"
+    SUPPORT_VERSION = "28.0.0"
     LIB_GLIDE_VERSION = "4.7.1"
     LIB_GLIDE_TRANSFORMATIONS_VERSION = "3.1.0"
     LIB_RXJAVA_VERSION = "2.1.9"
@@ -21,9 +21,9 @@ ext {
     LIB_EVENTBUS_VERSION = "3.1.1"
 
     LIB_MULTIDEX = "1.0.3"
-    LIB_BRBAH = "2.9.40"
-    flexbox = "0.3.2"
-    constraint_layout = "1.1.2"
+    LIB_BRBAH = "2.9.42"
+    flexbox = "1.0.0"
+    constraint_layout = "1.1.3"
 
     LIB_AROUTER_API = "1.3.1"
     LIB_AROUTER_COMPILER = "1.1.4"
@@ -32,17 +32,16 @@ ext {
 }
 
 buildscript {
-    ext.kotlin_version = '1.2.50'
+    ext.kotlin_version = '1.3.20'
     repositories {
         jcenter()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.3'
+        classpath 'com.android.tools.build:gradle:3.3.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
