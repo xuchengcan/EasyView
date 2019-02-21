@@ -73,7 +73,7 @@ public class MainActivity extends BaseActivity {
         mActivities.add(new ActivityBean(BookManagerActivity.class));
         mActivities.add(new ActivityBean(ARouterUrl.ModelLogin_LoginActivity));
         mActivities.add(new ActivityBean("chen.flutter.MainActivity", true));
-        mActivities.add(new ActivityBean(KotlinActivity.class));
+        mActivities.add(new ActivityBean(ClockActivity.class));
     }
 
 

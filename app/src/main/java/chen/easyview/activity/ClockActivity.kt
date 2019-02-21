@@ -4,9 +4,9 @@ import android.os.Bundle
 import chen.easyview.R
 import com.base.BaseActivity
 
-class KotlinActivity : BaseActivity() {
+class ClockActivity : BaseActivity() {
     override fun getContentView(): Int {
-        return R.layout.activity_kotlin
+        return R.layout.activity_clock
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

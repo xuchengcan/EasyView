@@ -104,7 +104,7 @@
         <activity
                 android:name=".activity.PermissionActivity"
                 android:theme="@style/translucent_theme"/>
-        <activity android:name=".activity.KotlinActivity">
+        <activity android:name=".activity.ClockActivity">
         </activity>
     </application>
 
