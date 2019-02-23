@@ -12,6 +12,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import chen.easyview.R;
 import chen.easyview.bean.ActivityBean;
+import chen.easyview.page.PageActivity;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.base.ARouterUrl;
@@ -74,6 +76,7 @@ public class MainActivity extends BaseActivity {
         mActivities.add(new ActivityBean(ARouterUrl.ModelLogin_LoginActivity));
         mActivities.add(new ActivityBean("chen.flutter.MainActivity", true));
         mActivities.add(new ActivityBean(ClockActivity.class));
+        mActivities.add(new ActivityBean(PageActivity.class));
     }
 
 

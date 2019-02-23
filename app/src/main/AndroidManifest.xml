@@ -62,7 +62,6 @@
         </activity>
         <activity android:name=".activity.ShowActivity"/>
         <activity android:name=".activity.CanvasActivity"/>
-        <activity android:name=".activity.TinkerActivity"/>
         <activity android:name=".activity.BubbleActivity"/>
         <activity android:name=".activity.NoteActivity">
             <intent-filter>
@@ -104,8 +103,9 @@
         <activity
                 android:name=".activity.PermissionActivity"
                 android:theme="@style/translucent_theme"/>
-        <activity android:name=".activity.ClockActivity">
-        </activity>
+        <activity android:name=".activity.ClockActivity"/>
+        <activity android:name=".page.PageActivity"/>
+
     </application>
 
 </manifest>

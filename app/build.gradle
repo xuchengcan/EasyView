@@ -20,6 +20,11 @@ android {
         versionCode VERSION_CODE
         versionName VERSION_NAME
         multiDexEnabled true
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi-v7a', 'x86'
+        }
 //        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -61,7 +66,7 @@ dependencies {
     // compile 'net.zetetic:android-database-sqlcipher:3.5.4'
     implementation 'org.greenrobot:greendao:3.2.0'
 
-    implementation 'com.google.zxing:core:3.3.2'
+    implementation 'com.google.zxing:core:3.3.3'
     implementation 'com.google.zxing:android-core:3.3.0'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}"
